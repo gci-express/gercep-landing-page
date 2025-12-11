@@ -8,7 +8,7 @@ export default function Footer() {
   };
 
   return (
-    <footer className="relative overflow-hidden bg-primary pt-20 pb-8 text-primary-foreground/75">
+    <footer className="-mt-10 sticky bottom-0 overflow-hidden bg-primary pt-28 pb-8 text-primary-foreground/75">
       {/* Background image overlay */}
       <div
         className="pointer-events-none absolute inset-0 opacity-20"

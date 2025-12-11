@@ -13,7 +13,7 @@ import Layout from "@/layouts/layout.astro";
   <!-- Critical above-the-fold: hydrate immediately -->
   <Navbar client:load/>
 
-  <main>
+  <main class="flex-1 relative z-10">
     <HeroSection client:load/>
 
     <!-- Below-the-fold: hydrate when visible -->

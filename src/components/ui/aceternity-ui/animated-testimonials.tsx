@@ -63,7 +63,7 @@ export const AnimatedTestimonials = ({
         className
       )}
     >
-      <div className="relative grid grid-cols-1 gap-20 md:grid-cols-2">
+      <div className="group relative grid grid-cols-1 gap-20 md:grid-cols-2">
         <div>
           <div className="relative h-80 w-full">
             <AnimatePresence>
@@ -100,7 +100,7 @@ export const AnimatedTestimonials = ({
                 >
                   <img
                     alt={testimonial.name}
-                    className="h-full w-full rounded-3xl object-cover object-center"
+                    className="h-full w-full rounded-3xl object-cover object-center grayscale transition-all duration-300 hover:grayscale-0 group-hover:grayscale-0"
                     draggable={false}
                     height={500}
                     src={testimonial.src}

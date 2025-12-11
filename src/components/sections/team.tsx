@@ -20,9 +20,12 @@ const sectionVariants: Variants = {
 
 export default function TeamSection() {
   return (
-    <section className="relative overflow-hidden py-32" id="team">
+    <section
+      className="relative overflow-hidden rounded-b-4xl bg-background py-32 shadow-[0_30px_60px_-40px_rgba(15,23,42,0.25)]"
+      id="team"
+    >
       {/* Background */}
-      <div className="-z-10 pointer-events-none absolute inset-0 bg-background">
+      <div className="pointer-events-none absolute inset-0 z-0 bg-background">
         <div className="grid-pattern absolute inset-0 z-10" />
         <motion.div
           animate={{ scale: [1, 1.2, 1] }}
@@ -31,7 +34,7 @@ export default function TeamSection() {
         />
       </div>
 
-      <div className="container mx-auto px-4">
+      <div className="container relative z-10 mx-auto px-4">
         <motion.div
           className="mb-16 text-center"
           initial="hidden"

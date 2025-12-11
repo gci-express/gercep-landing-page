@@ -24,8 +24,11 @@ const cardStagger = {
 
 export default function ClientsSection() {
   return (
-    <section className="relative overflow-hidden py-24" id="clients">
-      <div className="container relative z-10 mx-auto px-4 sm:px-6 lg:px-8">
+    <section
+      className="relative overflow-hidden bg-background py-24"
+      id="clients"
+    >
+      <div className="container relative mx-auto px-4 sm:px-6 lg:px-8">
         <motion.h3
           className="text-center font-medium text-lg text-muted-foreground/75"
           initial={{ opacity: 0, y: 20 }}
