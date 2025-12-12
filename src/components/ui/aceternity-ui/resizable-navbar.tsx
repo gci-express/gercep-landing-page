@@ -6,7 +6,7 @@
 import { AnimatePresence, motion } from "framer-motion";
 import { Menu, X } from "lucide-react";
 import React, { type ReactNode, useContext, useEffect, useState } from "react";
-import { cn } from "../../../lib/utils";
+import { cn } from "@/lib/utils";
 
 type NavbarProps = {
   children: React.ReactNode;

@@ -5,9 +5,9 @@
  */
 import { motion } from "framer-motion";
 import type { LucideIcon } from "lucide-react";
+import { SectionHeading } from "@/components/index-pages/section-heading";
 import { OUR_VALUES } from "@/lib/constants";
 import { cn } from "@/lib/utils";
-import { SectionHeading } from "../ui/section-heading";
 
 const GRID_COUNT_MOBILE = 1;
 const GRID_COUNT_TABLET = 2;

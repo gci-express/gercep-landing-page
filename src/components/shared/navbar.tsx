@@ -1,10 +1,5 @@
 import { useState } from "react";
 import {
-  NAVIGATION_ITEMS,
-  WHATSAPP_TEXT,
-  WHATSAPP_URL,
-} from "../../lib/constants";
-import {
   MobileNav,
   MobileNavHeader,
   MobileNavMenu,
@@ -13,8 +8,9 @@ import {
   NavbarLogo,
   NavItems,
   Navbar as ResizableNavbar,
-} from "../ui/aceternity-ui/resizable-navbar";
-import { Button } from "../ui/button";
+} from "@/components/ui/aceternity-ui/resizable-navbar";
+import { Button } from "@/components/ui/button";
+import { NAVIGATION_ITEMS, WHATSAPP_TEXT, WHATSAPP_URL } from "@/lib/constants";
 
 export default function Navbar() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);

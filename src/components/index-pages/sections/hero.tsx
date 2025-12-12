@@ -1,7 +1,7 @@
 import { motion, useScroll, useTransform, type Variants } from "framer-motion";
 import { ArrowRightIcon } from "lucide-react";
+import { Button } from "@/components/ui/button";
 import { WHATSAPP_TEXT, WHATSAPP_URL } from "@/lib/constants";
-import { Button } from "../ui/button";
 
 const HEROBG = "/bg-hero-gercep-express-port.webp";
 const heroTextVariants = {

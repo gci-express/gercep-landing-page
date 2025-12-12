@@ -13,10 +13,14 @@ import {
   PhoneCallIcon,
 } from "lucide-react";
 import { useEffect, useMemo, useRef, useState } from "react";
+import { Button } from "@/components/ui/button";
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipTrigger,
+} from "@/components/ui/tooltip";
 import { WHATSAPP_TEXT } from "@/lib/constants";
 import { cn } from "@/lib/utils";
-import { Button } from "../button";
-import { Tooltip, TooltipContent, TooltipTrigger } from "../tooltip";
 
 type Testimonial = {
   quote: string;
