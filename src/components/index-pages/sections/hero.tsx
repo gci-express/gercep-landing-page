@@ -3,7 +3,7 @@ import { ArrowRightIcon } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { WHATSAPP_TEXT, WHATSAPP_URL } from "@/lib/constants";
 
-const HEROBG = "/bg-hero-gercep-express-port.webp";
+const HEROBG = "/bg-hero-gercep-express-port-2.webp";
 const heroTextVariants = {
   hidden: { opacity: 0, y: 32, skewY: 2 },
   visible: (index = 0) => ({
@@ -47,7 +47,7 @@ export default function HeroSection() {
         <motion.img
           alt="Logistics Hub"
           animate={{ scale: 1 }}
-          className="h-full w-full object-cover"
+          className="h-full w-full object-cover object-center"
           height={1080}
           initial={{ scale: 1.1 }}
           src={HEROBG}

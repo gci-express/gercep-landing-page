@@ -5,19 +5,101 @@ import { OUR_SERVICES } from "@/lib/constants";
 import { cn } from "@/lib/utils";
 import { SectionHeading } from "../section-heading";
 
+export default function ServicesSection() {
+  const servicesHeadingId = "services-section-heading";
+
+  return (
+    <section
+      aria-labelledby={servicesHeadingId}
+      className="relative overflow-hidden py-12 md:py-24"
+    >
+      <div
+        aria-hidden
+        className="-z-10 pointer-events-none absolute inset-0 bg-background"
+        role="presentation"
+      >
+        <motion.svg
+          animate={{ opacity: [0.25, 0.4, 0.25], rotate: [0, 0.5, 0] }}
+          aria-hidden="true"
+          className="-translate-x-1/2 absolute top-0 left-1/2 h-[140%] w-[140%] text-foreground/25"
+          preserveAspectRatio="none"
+          role="presentation"
+          transition={{ duration: 18, repeat: Number.POSITIVE_INFINITY }}
+          viewBox="0 0 1000 1000"
+        >
+          <path
+            d="M-20 120 C 80 60, 220 60, 320 120 S 520 180, 620 120 820 60, 920 120 1120 180, 1220 120"
+            fill="none"
+            stroke="currentColor"
+            strokeDasharray="14 22"
+            strokeLinecap="round"
+            strokeWidth="3"
+          />
+          <path
+            d="M-40 380 C 110 340, 240 420, 360 360 S 560 300, 700 380 930 440, 1080 360"
+            fill="none"
+            stroke="currentColor"
+            strokeDasharray="10 28"
+            strokeLinecap="round"
+            strokeOpacity="0.7"
+            strokeWidth="4"
+          />
+          <path
+            d="M-80 650 C 40 560, 220 720, 360 640 S 560 520, 720 640 980 700, 1120 620"
+            fill="none"
+            stroke="currentColor"
+            strokeDasharray="6 18"
+            strokeLinecap="round"
+            strokeOpacity="0.5"
+            strokeWidth="5"
+          />
+        </motion.svg>
+      </div>
+
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+        <SectionHeading
+          align="left"
+          badge="Our Business"
+          className="max-w-xl"
+          description="Tailored strategies to make your business operations simpler, more efficient, and more profitable."
+          title={
+            <>
+              <span className="text-primary">End-to-End</span>
+              <br />
+              Logistics Solutions
+            </>
+          }
+          titleId={servicesHeadingId}
+        />
+
+        <ul className="grid auto-rows-[300px] grid-cols-1 gap-6 md:grid-cols-3">
+          {OUR_SERVICES.map((service, idx) => (
+            <li
+              className={cn("list-none", service.colSpan)}
+              key={service.title ?? idx}
+            >
+              <ServiceCard idx={idx} service={service} />
+            </li>
+          ))}
+        </ul>
+      </div>
+    </section>
+  );
+}
+
 type ServiceItem = (typeof OUR_SERVICES)[number];
 
 const serviceThemes = {
   media: {
     icon: "bg-white/25 text-white backdrop-blur-md",
     heading: "text-white",
-    body: "text-white/80",
+    body: "text-white",
     arrow: "border-white/30 text-white",
   },
   default: {
     icon: "bg-white/25 text-white backdrop-blur-md",
     heading: "text-white",
-    body: "text-white/80",
+    body: "text-white",
     arrow: "border-white/30 text-white",
   },
 } as const;
@@ -77,7 +159,7 @@ function ServiceCard({ service, idx }: { service: ServiceItem; idx: number }) {
       <div
         className={cn(
           "relative z-20 flex h-full flex-col justify-center p-8",
-          service.image ? "" : "opacity-75"
+          service.image ? "" : "opacity-80"
         )}
       >
         <div
@@ -116,44 +198,5 @@ function ServiceCard({ service, idx }: { service: ServiceItem; idx: number }) {
         </div>
       </div>
     </motion.article>
-  );
-}
-
-export default function ServicesSection() {
-  const servicesHeadingId = "services-section-heading";
-
-  return (
-    <section
-      aria-labelledby={servicesHeadingId}
-      className="bg-background py-12 md:py-24"
-    >
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <SectionHeading
-          align="left"
-          badge="Our Business"
-          className="max-w-xl"
-          description="Tailored strategies to make your business operations simpler, more efficient, and more profitable."
-          title={
-            <>
-              <span className="text-primary">End-to-End</span>
-              <br />
-              Logistics Solutions
-            </>
-          }
-          titleId={servicesHeadingId}
-        />
-
-        <ul className="grid auto-rows-[300px] grid-cols-1 gap-6 md:grid-cols-3">
-          {OUR_SERVICES.map((service, idx) => (
-            <li
-              className={cn("list-none", service.colSpan)}
-              key={service.title ?? idx}
-            >
-              <ServiceCard idx={idx} service={service} />
-            </li>
-          ))}
-        </ul>
-      </div>
-    </section>
   );
 }
