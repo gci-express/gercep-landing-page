@@ -11,6 +11,7 @@ export default function Footer() {
     <footer className="-mt-10 sticky bottom-0 overflow-hidden bg-primary pt-28 pb-8 text-primary-foreground/75">
       {/* Background image overlay */}
       <div
+        aria-hidden
         className="pointer-events-none absolute inset-0 opacity-20"
         style={{
           backgroundImage: `url("/bg-image-footer.png")`,
@@ -36,7 +37,10 @@ export default function Footer() {
               <span className="font-bold text-4xl">GERCEP</span>
             </motion.a>
 
-            <p className="mb-6 max-w-sm text-pretty leading-relaxed">
+            <p
+              className="mb-6 max-w-sm text-pretty leading-relaxed"
+              id="footer-heading"
+            >
               Modern logistics solutions ensuring fast, reliable, and
               customer-centric services. We deliver trust and smiles.
             </p>
@@ -58,8 +62,10 @@ export default function Footer() {
           </div>
 
           {/* Services */}
-          <div>
-            <h4 className="mb-6 font-semibold">Services</h4>
+          <nav aria-labelledby="footer-services-heading">
+            <h4 className="mb-6 font-semibold" id="footer-services-heading">
+              Services
+            </h4>
             <ul className="space-y-3">
               {FOOTER_LINKS.services.map((link) => (
                 <li key={link.label}>
@@ -72,11 +78,13 @@ export default function Footer() {
                 </li>
               ))}
             </ul>
-          </div>
+          </nav>
 
           {/* Company */}
-          <div>
-            <h4 className="mb-6 font-semibold">Company</h4>
+          <nav aria-labelledby="footer-company-heading">
+            <h4 className="mb-6 font-semibold" id="footer-company-heading">
+              Company
+            </h4>
             <ul className="space-y-3">
               {FOOTER_LINKS.company.map((link) => (
                 <li key={link.label}>
@@ -89,11 +97,16 @@ export default function Footer() {
                 </li>
               ))}
             </ul>
-          </div>
+          </nav>
 
           {/* Contact */}
-          <div>
-            <h4 className="mb-6 font-semibold">Contact</h4>
+          <address
+            aria-labelledby="footer-contact-heading"
+            className="not-italic"
+          >
+            <h4 className="mb-6 font-semibold" id="footer-contact-heading">
+              Contact
+            </h4>
             <ul className="space-y-4">
               {FOOTER_LINKS.contacts.map((link) => (
                 <li className="flex items-start gap-3" key={link.label}>
@@ -107,7 +120,7 @@ export default function Footer() {
                 </li>
               ))}
             </ul>
-          </div>
+          </address>
         </div>
 
         {/* Bottom Footer */}

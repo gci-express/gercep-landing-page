@@ -1,5 +1,6 @@
 import {
   AwardIcon,
+  BriefcaseIcon,
   CheckCircleIcon,
   CpuIcon,
   DollarSignIcon,
@@ -9,9 +10,12 @@ import {
   MailIcon,
   MapPinIcon,
   PhoneIcon,
+  ShipIcon,
   TrendingUpIcon,
+  TruckIcon,
   TwitterIcon,
   UsersIcon,
+  WarehouseIcon,
 } from "lucide-react";
 
 export const WHATSAPP_URL = "https://wa.me/628119898922";
@@ -20,9 +24,9 @@ export const WHATSAPP_TEXT =
 export const MAILTO_URL = "mailto:kevin@gci-express.com";
 
 export const NAVIGATION_ITEMS = [
-  { name: "Clients", link: "#clients" },
+  { name: "Our Clients", link: "#clients" },
   { name: "Services", link: "#services" },
-  { name: "About", link: "#about" },
+  { name: "About Us", link: "#about" },
   { name: "Team", link: "#team" },
 ];
 
@@ -69,10 +73,10 @@ export const FOOTER_LINKS = {
     { label: "Logistics Consulting", href: "#" },
   ],
   company: [
-    { label: "About Us", href: "#" },
-    { label: "Our Vision", href: "#" },
-    { label: "Board of Directors", href: "#" },
-    { label: "Contact", href: "#" },
+    { label: "About Us", href: "#about" },
+    { label: "Our Clients", href: "#clients" },
+    { label: "Team", href: "#team" },
+    { label: "Contact", href: "#footer" },
   ],
   contacts: [
     { label: "Jakarta, Indonesia", href: "#", icon: MapPinIcon },
@@ -150,5 +154,45 @@ export const OUR_VALUES = [
     description:
       "We empower clients to grow by delivering value beyond cost savings.",
     icon: TrendingUpIcon,
+  },
+];
+
+export const OUR_SERVICES = [
+  {
+    title: "Warehouse Management",
+    desc: "Third-party storage and handling solutions with advanced inventory tracking.",
+    image: "/business-warehouse.webp",
+    icon: WarehouseIcon,
+    colSpan: "md:col-span-2",
+  },
+  {
+    title: "Expedition",
+    desc: "Comprehensive road, rail, sea, and air transport for flexible distribution networks.",
+    image: "/business-expedition.webp",
+    icon: TruckIcon,
+    colSpan: "md:col-span-1",
+  },
+  {
+    title: "Freight Forwarding",
+    desc: "Global shipping solutions including FTL, LTL, FCL, and LCL services.",
+    image: "/business-freight.webp",
+    icon: ShipIcon,
+    colSpan: "md:col-span-1",
+  },
+  {
+    title: "Outsourcing",
+    desc: "Reliable workforce solutions for logistics and operational excellence.",
+    image: null,
+    icon: UsersIcon,
+    colSpan: "md:col-span-1",
+    bgClass: "bg-primary text-primary-foreground",
+  },
+  {
+    title: "Logistics Consulting",
+    desc: "Customized strategies to boost productivity and optimize your supply chain operations.",
+    image: null,
+    icon: BriefcaseIcon,
+    colSpan: "md:col-span-1",
+    bgClass: "bg-primary text-primary-foreground",
   },
 ];

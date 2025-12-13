@@ -36,9 +36,13 @@ export default function HeroSection() {
   const parallaxY = useTransform(scrollY, [0, 600], ["0%", "50%"]);
 
   return (
-    <section className="relative flex h-screen flex-col items-center justify-evenly gap-24 overflow-hidden">
+    <section
+      aria-describedby="hero-description"
+      aria-labelledby="hero-heading"
+      className="relative flex h-screen flex-col items-center justify-evenly gap-24 overflow-hidden"
+    >
       {/* Background Image with Overlay */}
-      <div className="absolute inset-0 z-0">
+      <div aria-hidden className="absolute inset-0 z-0" role="presentation">
         <div className="absolute inset-0 z-10 bg-linear-to-t from-black/85 via-black/50 to-black/25" />
         <motion.img
           alt="Logistics Hub"
@@ -60,20 +64,25 @@ export default function HeroSection() {
 
       <div className="container relative z-20 mx-auto px-4 pt-20">
         <div className="space-y-10 text-left">
-          <motion.div animate="visible" className="space-y-6" initial="hidden">
-            <motion.div
-              className="mb-6 flex items-center gap-3"
+          <motion.header
+            animate="visible"
+            className="space-y-6"
+            initial="hidden"
+            role="group"
+          >
+            <motion.p
+              aria-label="Offering end-to-end logistics solutions"
+              className="mb-6 inline-flex items-center gap-3 rounded-full border border-primary/75 bg-primary/25 px-3 py-1 font-bold text-primary-foreground/75 text-xs uppercase tracking-widest backdrop-blur-sm"
               custom={0}
               variants={heroTextVariants}
             >
-              <span className="rounded-full border border-primary/75 bg-primary/25 px-3 py-1 font-bold text-primary-foreground/75 text-xs uppercase tracking-widest backdrop-blur-sm">
-                End-to-End Logistics Solutions
-              </span>
-            </motion.div>
+              End-to-End Logistics Solutions
+            </motion.p>
 
             <motion.h1
               className="text-pretty font-extrabold font-heading text-5xl text-primary-foreground uppercase italic leading-[0.9] md:text-7xl lg:text-8xl"
               custom={1}
+              id="hero-heading"
               variants={heroTextVariants}
             >
               Deliver{" "}
@@ -87,17 +96,19 @@ export default function HeroSection() {
             <motion.p
               className="max-w-2xl text-pretty font-light text-lg text-primary-foreground/75 leading-relaxed md:text-xl"
               custom={2}
+              id="hero-description"
               variants={heroTextVariants}
             >
               We don&apos;t just deliver goods, we deliver trust, efficiency,
               and smiles at every destination. Experience the modern standard of
               logistics.
             </motion.p>
-          </motion.div>
+          </motion.header>
 
           <motion.div
             animate="visible"
             initial="hidden"
+            role="group"
             variants={heroButtonVariant}
           >
             <Button
@@ -106,6 +117,7 @@ export default function HeroSection() {
               size="lg"
             >
               <a
+                aria-label="Request a logistics quote via WhatsApp"
                 href={`${WHATSAPP_URL}?text=${encodeURIComponent(WHATSAPP_TEXT)}`}
                 rel="noreferrer noopener"
                 target="_blank"
@@ -120,7 +132,9 @@ export default function HeroSection() {
       {/* Scroll Indicator */}
       <motion.div
         animate={{ y: [0, 10, 0] }}
+        aria-hidden
         className="-translate-x-1/2 absolute bottom-10 left-1/2 mb-4 flex flex-col items-center gap-2 text-white/30"
+        role="presentation"
         transition={{ duration: 2, repeat: Number.POSITIVE_INFINITY }}
       >
         <span className="text-[10px] uppercase tracking-[0.2em]">Scroll</span>

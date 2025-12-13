@@ -17,6 +17,7 @@ type SectionHeadingProps = {
   description?: string | ReactNode;
   align?: "left" | "center";
   className?: string;
+  titleId?: string;
 };
 
 export function SectionHeading({
@@ -25,6 +26,7 @@ export function SectionHeading({
   description,
   align = "center",
   className = "",
+  titleId,
 }: SectionHeadingProps) {
   const alignClasses =
     align === "center"
@@ -32,7 +34,8 @@ export function SectionHeading({
       : "text-left text-pretty";
 
   return (
-    <motion.div
+    <motion.header
+      aria-live="polite"
       className={cn("mb-16 text-center", alignClasses, className)}
       initial="hidden"
       variants={sectionVariants}
@@ -47,6 +50,7 @@ export function SectionHeading({
 
       <motion.h2
         className="font-bold font-heading text-4xl text-foreground uppercase leading-tight md:text-5xl"
+        id={titleId}
         variants={{
           hidden: { opacity: 0, y: 20 },
           visible: {
@@ -71,6 +75,6 @@ export function SectionHeading({
           {description}
         </motion.p>
       ) : null}
-    </motion.div>
+    </motion.header>
   );
 }

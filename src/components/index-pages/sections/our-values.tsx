@@ -59,8 +59,8 @@ const isDesktopFirstRow = (index: number) => index < GRID_COUNT_DESKTOP;
 export default function OurValuesSection() {
   return (
     <section
-      className="relative overflow-hidden rounded-b-4xl py-24 shadow-[0_30px_60px_-40px_rgba(15,23,42,0.5)]"
-      id="our-values"
+      aria-labelledby="our-values-heading"
+      className="relative overflow-hidden rounded-b-4xl py-12 shadow-[0_30px_60px_-40px_rgba(15,23,42,0.5)] md:py-24"
     >
       {/* Background */}
       <div className="pointer-events-none absolute inset-0 z-0 bg-background">
@@ -90,6 +90,7 @@ export default function OurValuesSection() {
               Savings
             </>
           }
+          titleId="our-values-heading"
         />
 
         <FeaturesGrid />
@@ -101,7 +102,8 @@ export default function OurValuesSection() {
 // feature grid component
 function FeaturesGrid() {
   return (
-    <motion.div
+    <motion.ul
+      aria-label="Gercep core values"
       className={cn(
         "relative z-10 mx-auto grid",
         getGridTemplateClass(GRID_COUNT_MOBILE),
@@ -109,6 +111,7 @@ function FeaturesGrid() {
         getGridTemplateClass(GRID_COUNT_DESKTOP, "lg")
       )}
       initial="hidden"
+      role="list"
       variants={{
         hidden: { opacity: 0, y: 40 },
         show: {
@@ -123,7 +126,7 @@ function FeaturesGrid() {
       {OUR_VALUES.map((feature, index) => (
         <FeatureCard key={feature.title} {...feature} index={index} />
       ))}
-    </motion.div>
+    </motion.ul>
   );
 }
 
@@ -139,7 +142,7 @@ const FeatureCard = ({
   icon: LucideIcon;
   index: number;
 }) => (
-  <motion.div
+  <motion.li
     className={cn(
       "group/feature relative flex flex-col border-border border-b border-l py-6 backdrop-blur-md md:py-10 lg:border-r lg:border-b-0 lg:border-l-0",
       isDesktopFirstColumn(index) && "lg:border-l",
@@ -163,7 +166,7 @@ const FeatureCard = ({
       <div className="pointer-events-none absolute inset-0 h-full w-full bg-linear-to-b from-secondary to-transparent opacity-0 transition duration-200 group-hover/feature:opacity-100" />
     )}
     <div className="relative z-10 mb-4 px-10 text-foreground group-hover/feature:text-primary">
-      <Icon className="shrink-0 opacity-75" />
+      <Icon aria-hidden className="shrink-0 opacity-75" />
     </div>
     <div className="relative z-10 mb-2 px-10 font-bold text-lg">
       <motion.div
@@ -180,5 +183,5 @@ const FeatureCard = ({
     <p className="relative z-10 text-pretty px-10 text-muted-foreground text-sm">
       {description}
     </p>
-  </motion.div>
+  </motion.li>
 );

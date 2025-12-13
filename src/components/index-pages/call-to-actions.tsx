@@ -1,13 +1,20 @@
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 
+const CTA_HEADING_ID = "cta-heading";
+
 export default function CallToActionsSection() {
   return (
-    <section className="-my-10 -z-10 relative overflow-hidden bg-primary py-32 text-center text-primary-foreground">
+    <section
+      aria-labelledby={CTA_HEADING_ID}
+      className="-my-10 -z-10 relative overflow-hidden bg-primary py-24 text-center text-primary-foreground md:py-32"
+    >
       {/* Background image overlay */}
       <motion.div
         animate={{ opacity: [0.15, 0.3, 0.15], scale: [1, 1.03, 1] }}
+        aria-hidden
         className="-z-20 pointer-events-none absolute inset-0"
+        role="presentation"
         style={{
           backgroundImage: `url("/bg-image-footer.png")`,
           backgroundSize: "cover",
@@ -18,7 +25,11 @@ export default function CallToActionsSection() {
       />
 
       {/* Decorative gradients */}
-      <div className="-z-20 pointer-events-none absolute inset-0">
+      <div
+        aria-hidden
+        className="-z-20 pointer-events-none absolute inset-0"
+        role="presentation"
+      >
         <motion.div
           animate={{ y: [-8, 8, -8], opacity: [0.4, 0.7, 0.4] }}
           className="-top-12 -translate-x-1/2 absolute left-1/2 h-64 w-64 rounded-full bg-background/10 blur-3xl"
@@ -39,7 +50,9 @@ export default function CallToActionsSection() {
       {/* Repeating square pattern */}
       <motion.div
         animate={{ backgroundPosition: ["0px 0px", "16px 16px", "0px 0px"] }}
+        aria-hidden
         className="-z-10 pointer-events-none absolute inset-0 mx-auto max-w-7xl border border-white/15 opacity-100"
+        role="presentation"
         style={{
           backgroundImage:
             "linear-gradient(90deg, rgba(255,255,255,0.25) 1px, transparent 1px), linear-gradient(rgba(255,255,255,0.25) 1px, transparent 1px)",
@@ -48,7 +61,9 @@ export default function CallToActionsSection() {
         transition={{ duration: 18, repeat: Number.POSITIVE_INFINITY }}
       />
 
-      <motion.div
+      <motion.article
+        aria-describedby="cta-description"
+        aria-live="polite"
         className="relative inline-flex flex-col items-center gap-8 border border-border/25 bg-primary p-8 text-primary-foreground shadow-none sm:flex-row"
         initial="hidden"
         transition={{ staggerChildren: 0.15 }}
@@ -68,38 +83,50 @@ export default function CallToActionsSection() {
           transition={{ duration: 14, repeat: Number.POSITIVE_INFINITY }}
         />
 
-        <motion.div
-          className="text-center sm:text-left"
-          variants={{
-            hidden: { opacity: 0, y: 20 },
-            show: { opacity: 1, y: 0, transition: { duration: 0.6 } },
-          }}
-        >
-          <h3 className="text-balance font-bold text-2xl leading-normal sm:text-pretty">
-            Optimize your logistics, <br /> unlock higher profitability.
-          </h3>
-        </motion.div>
-
-        <motion.div
+        <motion.header
+          className="text-center opacity-75! sm:text-left"
+          initial="hidden"
           variants={{
             hidden: { opacity: 0, y: 20 },
             show: {
               opacity: 1,
               y: 0,
-              transition: { duration: 0.6, delay: 0.5 },
+              transition: { duration: 0.3, delay: 0.25 },
             },
           }}
+          whileInView="show"
+        >
+          <h2
+            className="text-balance font-bold text-2xl leading-normal sm:text-pretty"
+            id={CTA_HEADING_ID}
+          >
+            Optimize your logistics, <br /> unlock higher profitability.
+          </h2>
+        </motion.header>
+
+        <motion.div
+          initial="hidden"
+          variants={{
+            hidden: { opacity: 0, y: 20 },
+            show: {
+              opacity: 1,
+              y: 0,
+              transition: { duration: 0.3, delay: 0.5 },
+            },
+          }}
+          whileInView="show"
           whileTap={{ scale: 0.95 }}
         >
           <Button
-            className="rounded-full shadow-none"
+            aria-label="Get a personalized logistics quote"
+            className="rounded-full opacity-90! shadow-none"
             size="lg"
             variant="outline"
           >
             <span>Get a Quote</span>
           </Button>
         </motion.div>
-      </motion.div>
+      </motion.article>
     </section>
   );
 }

@@ -15,11 +15,15 @@ const leadershipTestimonials = TEAMS.map((member) => ({
 export default function TeamSection() {
   return (
     <section
-      className="relative overflow-hidden rounded-4xl bg-background py-24 shadow-[0_30px_60px_-40px_rgba(15,23,42,0.5),0_-30px_60px_-40px_rgba(15,23,42,0.5)]"
-      id="team"
+      aria-labelledby="team-heading"
+      className="relative overflow-hidden rounded-4xl bg-background py-12 shadow-[0_30px_60px_-40px_rgba(15,23,42,0.5),0_-30px_60px_-40px_rgba(15,23,42,0.5)] md:py-24"
     >
       {/* Background */}
-      <div className="pointer-events-none absolute inset-0 z-0 bg-background">
+      <div
+        aria-hidden
+        className="pointer-events-none absolute inset-0 z-0 bg-background"
+        role="presentation"
+      >
         <div className="grid-pattern absolute inset-0 z-10" />
         <motion.div
           animate={{ scale: [1, 1.2, 1] }}
@@ -37,6 +41,7 @@ export default function TeamSection() {
               Meet the <span className="text-primary">Board</span>
             </>
           }
+          titleId="team-heading"
         />
 
         <TeamCard
