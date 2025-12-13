@@ -1,6 +1,7 @@
-import { motion, type Variants } from "framer-motion";
+import { motion } from "framer-motion";
 import TeamCard from "@/components/ui/aceternity-ui/team-card";
 import { TEAMS } from "@/lib/constants";
+import { SectionHeading } from "../section-heading";
 
 const leadershipTestimonials = TEAMS.map((member) => ({
   quote: member.bio,
@@ -11,19 +12,10 @@ const leadershipTestimonials = TEAMS.map((member) => ({
   phone: member.phone,
 }));
 
-const sectionVariants: Variants = {
-  hidden: { opacity: 0, y: 40 },
-  visible: {
-    opacity: 1,
-    y: 0,
-    transition: { duration: 0.8 },
-  },
-};
-
 export default function TeamSection() {
   return (
     <section
-      className="relative overflow-hidden rounded-b-4xl bg-background py-24 shadow-[0_30px_60px_-40px_rgba(15,23,42,0.5)]"
+      className="relative overflow-hidden rounded-4xl bg-background py-24 shadow-[0_30px_60px_-40px_rgba(15,23,42,0.5),0_-30px_60px_-40px_rgba(15,23,42,0.5)]"
       id="team"
     >
       {/* Background */}
@@ -37,30 +29,15 @@ export default function TeamSection() {
       </div>
 
       <div className="container relative z-10 mx-auto px-4 sm:px-6 lg:px-8">
-        <motion.div
-          className="mb-16 text-center"
-          initial="hidden"
-          variants={sectionVariants}
-          viewport={{ once: false, amount: 0.4 }}
-          whileInView="visible"
-        >
-          <span className="mb-2 block font-bold text-primary text-sm uppercase tracking-widest">
-            Leadership
-          </span>
-          <motion.h2
-            className="font-bold font-heading text-4xl text-foreground uppercase md:text-5xl"
-            variants={{
-              hidden: { opacity: 0, y: 20 },
-              visible: {
-                opacity: 1,
-                y: 0,
-                transition: { duration: 0.7, ease: "easeOut", delay: 0.1 },
-              },
-            }}
-          >
-            Meet the Board
-          </motion.h2>
-        </motion.div>
+        <SectionHeading
+          badge="Leadership"
+          className="max-w-xl"
+          title={
+            <>
+              Meet the <span className="text-primary">Board</span>
+            </>
+          }
+        />
 
         <TeamCard
           className="py-0 pt-12 md:py-12"

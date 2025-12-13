@@ -120,7 +120,7 @@ export default function HeroSection() {
       {/* Scroll Indicator */}
       <motion.div
         animate={{ y: [0, 10, 0] }}
-        className="-translate-x-1/2 absolute bottom-10 left-1/2 flex flex-col items-center gap-2 text-white/30"
+        className="-translate-x-1/2 absolute bottom-10 left-1/2 mb-4 flex flex-col items-center gap-2 text-white/30"
         transition={{ duration: 2, repeat: Number.POSITIVE_INFINITY }}
       >
         <span className="text-[10px] uppercase tracking-[0.2em]">Scroll</span>

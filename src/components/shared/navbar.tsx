@@ -16,7 +16,7 @@ export default function Navbar() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   return (
-    <ResizableNavbar className="fixed top-0 right-0 left-0 z-50">
+    <ResizableNavbar className="fixed top-3 right-0 left-0 z-50 lg:top-0">
       {/* Desktop Navigation */}
       <NavBody>
         <NavbarLogo />
@@ -24,7 +24,7 @@ export default function Navbar() {
         <div className="z-10 flex items-center gap-4">
           <Button
             asChild
-            className="px-8 font-bold uppercase tracking-wide"
+            className="rounded-full px-8 font-bold uppercase tracking-wide"
             size="lg"
           >
             <a

@@ -20,14 +20,35 @@ const GRID_CLASS_MAP = {
 } as const;
 
 type GridClassKey = keyof typeof GRID_CLASS_MAP;
+type Breakpoint = "md" | "lg";
+
+const RESPONSIVE_GRID_CLASS_MAP: Record<
+  Breakpoint,
+  Record<GridClassKey, string>
+> = {
+  md: {
+    1: "md:grid-cols-1",
+    2: "md:grid-cols-2",
+    3: "md:grid-cols-3",
+    4: "md:grid-cols-4",
+  },
+  lg: {
+    1: "lg:grid-cols-1",
+    2: "lg:grid-cols-2",
+    3: "lg:grid-cols-3",
+    4: "lg:grid-cols-4",
+  },
+};
 
 const getGridTemplateClass = (
   count: number,
-  breakpoint?: "md" | "lg"
+  breakpoint?: Breakpoint
 ): string => {
   const safeKey = Math.min(Math.max(count, 1), 4) as GridClassKey;
   const baseClass = GRID_CLASS_MAP[safeKey];
-  return breakpoint ? `${breakpoint}:${baseClass}` : baseClass;
+  return breakpoint
+    ? RESPONSIVE_GRID_CLASS_MAP[breakpoint][safeKey]
+    : baseClass;
 };
 
 const isDesktopFirstColumn = (index: number) =>
@@ -37,7 +58,10 @@ const isDesktopFirstRow = (index: number) => index < GRID_COUNT_DESKTOP;
 
 export default function OurValuesSection() {
   return (
-    <section className="relative overflow-hidden py-24" id="our-values">
+    <section
+      className="relative overflow-hidden rounded-b-4xl py-24 shadow-[0_30px_60px_-40px_rgba(15,23,42,0.5)]"
+      id="our-values"
+    >
       {/* Background */}
       <div className="pointer-events-none absolute inset-0 z-0 bg-background">
         <div
@@ -79,7 +103,7 @@ function FeaturesGrid() {
   return (
     <motion.div
       className={cn(
-        "relative z-10 mx-auto grid pb-12",
+        "relative z-10 mx-auto grid",
         getGridTemplateClass(GRID_COUNT_MOBILE),
         getGridTemplateClass(GRID_COUNT_TABLET, "md"),
         getGridTemplateClass(GRID_COUNT_DESKTOP, "lg")
@@ -90,7 +114,7 @@ function FeaturesGrid() {
         show: {
           opacity: 1,
           y: 0,
-          transition: { staggerChildren: 0.12, duration: 0.6, ease: "easeOut" },
+          transition: { staggerChildren: 0.2, duration: 0.6, ease: "easeOut" },
         },
       }}
       viewport={{ once: false }}
@@ -117,7 +141,7 @@ const FeatureCard = ({
 }) => (
   <motion.div
     className={cn(
-      "group/feature relative flex flex-col border py-10 backdrop-blur-md lg:border-0 lg:border-r",
+      "group/feature relative flex flex-col border-border border-b border-l py-6 backdrop-blur-md md:py-10 lg:border-r lg:border-b-0 lg:border-l-0",
       isDesktopFirstColumn(index) && "lg:border-l",
       isDesktopFirstRow(index) && "lg:border-b"
     )}
@@ -126,7 +150,7 @@ const FeatureCard = ({
       show: {
         opacity: 1,
         y: 0,
-        transition: { duration: 0.8, ease: "easeOut" },
+        transition: { duration: 0.5, ease: "easeOut" },
       },
     }}
     viewport={{ once: false }}
@@ -139,7 +163,7 @@ const FeatureCard = ({
       <div className="pointer-events-none absolute inset-0 h-full w-full bg-linear-to-b from-secondary to-transparent opacity-0 transition duration-200 group-hover/feature:opacity-100" />
     )}
     <div className="relative z-10 mb-4 px-10 text-foreground group-hover/feature:text-primary">
-      <Icon className="shrink-0" />
+      <Icon className="shrink-0 opacity-75" />
     </div>
     <div className="relative z-10 mb-2 px-10 font-bold text-lg">
       <motion.div

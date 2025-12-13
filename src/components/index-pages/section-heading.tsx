@@ -56,7 +56,6 @@ export function SectionHeading({
           },
         }}
         viewport={{ once: false }}
-        whileInView="visible"
       >
         {title}
       </motion.h2>

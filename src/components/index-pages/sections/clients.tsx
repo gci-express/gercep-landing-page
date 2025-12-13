@@ -23,14 +23,14 @@ const cardStagger = {
   show: (index: number) => ({
     opacity: 1,
     y: 0,
-    transition: { duration: 0.5, delay: index * 0.05 },
+    transition: { duration: 0.5, delay: index * 0.15 },
   }),
 };
 
 export default function ClientsSection() {
   return (
     <section
-      className="relative overflow-hidden bg-background py-24"
+      className="-mt-5 relative overflow-hidden rounded-t-2xl bg-background py-24"
       id="clients"
     >
       <div className="container relative mx-auto px-4 sm:px-6 lg:px-8">
