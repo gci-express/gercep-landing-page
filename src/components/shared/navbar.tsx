@@ -12,6 +12,26 @@ import {
 import { Button } from "@/components/ui/button";
 import { NAVIGATION_ITEMS, WHATSAPP_TEXT, WHATSAPP_URL } from "@/lib/constants";
 
+const whiteLogo = (
+  <img
+    alt="Gercep logo"
+    className="h-10 w-auto"
+    height="40"
+    src="/gercep_logo_full_white.webp"
+    width="160"
+  />
+);
+
+const greenLogo = (
+  <img
+    alt="Gercep logo"
+    className="h-10 w-auto"
+    height="40"
+    src="/gercep_logo_full_green.webp"
+    width="160"
+  />
+);
+
 export default function Navbar() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
@@ -19,7 +39,7 @@ export default function Navbar() {
     <ResizableNavbar className="fixed top-3 right-0 left-0 z-50 lg:top-0">
       {/* Desktop Navigation */}
       <NavBody>
-        <NavbarLogo />
+        <NavbarLogo logo={whiteLogo} logoScrolled={greenLogo} />
         <NavItems items={NAVIGATION_ITEMS} />
         <div className="z-10 flex items-center gap-4">
           <Button
@@ -41,7 +61,7 @@ export default function Navbar() {
       {/* Mobile Navigation */}
       <MobileNav>
         <MobileNavHeader>
-          <NavbarLogo />
+          <NavbarLogo logo={whiteLogo} logoScrolled={greenLogo} />
           <MobileNavToggle
             isOpen={isMobileMenuOpen}
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}

@@ -27,14 +27,17 @@ export default function Footer() {
           <div className="col-span-full lg:col-span-2">
             {/* Brand Column */}
             <motion.a
-              className="mb-6 inline-flex items-center gap-3"
+              className="mb-4 inline-flex items-center gap-3"
               href="/"
               whileHover={{ scale: 1.02 }}
             >
-              <div className="flex size-12 items-center justify-center rounded-full bg-primary-foreground/75">
-                <span className="font-bold text-3xl text-primary">G</span>
-              </div>
-              <span className="font-bold text-4xl">GERCEP</span>
+              <img
+                alt="Gercep logo"
+                className="h-16 w-auto"
+                height="64"
+                src="/gercep_logo_full_white.webp"
+                width="192"
+              />
             </motion.a>
 
             <p

@@ -239,7 +239,7 @@ export const MobileNavToggle = ({
   if (isOpen) {
     return (
       <X
-        className={cn(visible ? "text-primary" : "text-white")}
+        className={cn("size-7", visible ? "text-primary" : "text-white")}
         onClick={onClick}
       />
     );
@@ -247,7 +247,7 @@ export const MobileNavToggle = ({
 
   return (
     <Menu
-      className={cn(visible ? "text-primary" : "text-white")}
+      className={cn("size-7", visible ? "text-primary" : "text-white")}
       onClick={onClick}
     />
   );
@@ -256,13 +256,16 @@ export const MobileNavToggle = ({
 export const NavbarLogo = ({
   className,
   logo,
+  logoScrolled,
   title = "Gercep",
 }: {
   className?: string;
   logo?: ReactNode;
+  logoScrolled?: ReactNode;
   title?: string;
 }) => {
   const visible = useNavbarVisibility();
+  const logoContent = visible ? (logoScrolled ?? logo) : logo;
 
   return (
     <a
@@ -273,12 +276,15 @@ export const NavbarLogo = ({
       )}
       href="/"
     >
-      {logo || (
-        <div className="flex h-10 w-10 items-center justify-center rounded-xl border border-primary-foreground/25 bg-primary">
-          <span className="font-bold text-primary-foreground text-xl">G</span>
-        </div>
+      {logoContent || (
+        <>
+          <div className="flex h-10 w-10 items-center justify-center rounded-xl border border-primary-foreground/25 bg-primary">
+            <span className="font-bold text-primary-foreground text-xl">G</span>
+          </div>
+
+          <span className="font-bold text-2xl uppercase">{title}</span>
+        </>
       )}
-      <span className="font-bold text-2xl uppercase">{title}</span>
     </a>
   );
 };
