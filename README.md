@@ -1,43 +1,57 @@
-# Astro Starter Kit: Minimal
+
+# GERCEP Landing Page
+
+Official landing page for **Gercep** — a modern logistics solutions provider focused on fast, reliable, customer-centric service.
+
+## Tech Stack
+
+- Astro
+- React
+- Tailwind CSS
+- framer-motion
+- shadcn/ui
+- TypeScript
+- Ultracite (lint/format)
+
+## Prerequisites
+
+- Bun
+
+## Development
 
 ```sh
-bun create astro@latest -- --template minimal
+bun install
+bun dev
 ```
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
-
-## 🚀 Project Structure
-
-Inside of your Astro project, you'll see the following folders and files:
-
-```text
-/
-├── public/
-├── src/
-│   └── pages/
-│       └── index.astro
-└── package.json
-```
-
-Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
-
-There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
-
-Any static assets, like images, can be placed in the `public/` directory.
+Open `http://localhost:4321`.
 
 ## 🧞 Commands
 
 All commands are run from the root of the project, from a terminal:
 
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `bun install`             | Installs dependencies                            |
-| `bun dev`             | Starts local dev server at `localhost:4321`      |
-| `bun build`           | Build your production site to `./dist/`          |
-| `bun preview`         | Preview your build locally, before deploying     |
-| `bun astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `bun astro -- --help` | Get help using the Astro CLI                     |
+| Command | Description |
+| :-- | :-- |
+| `bun dev` | Start the dev server |
+| `bun build` | Build for production to `dist/` |
+| `bun preview` | Preview the production build |
+| `bun typecheck` | TypeScript typecheck (`tsc --noEmit`) |
+| `bun lint` | Lint (`ultracite check`) |
+| `bun format` | Format/fix (`ultracite fix`) |
+| `bun ui` | Run the shadcn/ui CLI |
+| `bun ultracite:validate` | Validate Ultracite |
 
-## 👀 Want to learn more?
+## Project Structure
 
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+```text
+public/            Static assets (logos, images)
+src/pages/         Astro pages (routing)
+src/components/    UI/section components (React)
+src/layouts/       Layout Astro
+src/lib/           Constants & utilities
+```
+
+## Notes
+
+- Homepage: `src/pages/index.astro`
+- Navigation/CTA/clients/services/values/team data: `src/lib/constants.ts`
