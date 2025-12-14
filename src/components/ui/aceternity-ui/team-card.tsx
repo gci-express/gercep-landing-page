@@ -180,11 +180,12 @@ const TeamCard = ({
                     <div className="flex w-full max-w-[90%] flex-wrap justify-center gap-3 pb-4">
                       <motion.div
                         animate={{ opacity: 1, y: 0 }}
+                        exit={{ opacity: 0, y: 8 }}
                         initial={{ opacity: 0, y: 8 }}
                         transition={{
                           duration: 0.25,
                           ease: "easeOut",
-                          delay: 0.05,
+                          delay: 0.5,
                         }}
                       >
                         <Tooltip>
@@ -210,18 +211,19 @@ const TeamCard = ({
                               </a>
                             </Button>
                           </TooltipTrigger>
-                          <TooltipContent side="bottom">
+                          <TooltipContent side="top">
                             <p>Mail us</p>
                           </TooltipContent>
                         </Tooltip>
                       </motion.div>
                       <motion.div
                         animate={{ opacity: 1, y: 0 }}
+                        exit={{ opacity: 0, y: 8 }}
                         initial={{ opacity: 0, y: 8 }}
                         transition={{
                           duration: 0.25,
                           ease: "easeOut",
-                          delay: 0.1,
+                          delay: 0.75,
                         }}
                       >
                         <Tooltip>
@@ -247,7 +249,7 @@ const TeamCard = ({
                               </a>
                             </Button>
                           </TooltipTrigger>
-                          <TooltipContent side="bottom">
+                          <TooltipContent side="top">
                             <p>Whatsapp us</p>
                           </TooltipContent>
                         </Tooltip>
@@ -313,7 +315,7 @@ const TeamCard = ({
                   transition={{
                     duration: 0.2,
                     ease: "easeInOut",
-                    delay: 0.02 * index,
+                    delay: 0.075 * index,
                   }}
                 >
                   {word}
@@ -323,13 +325,14 @@ const TeamCard = ({
             </motion.p>
           </motion.div>
           <motion.div
-            animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 16 }}
+            animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 32 }}
             aria-label="Carousel controls"
             className="flex gap-4 pt-12 md:pt-0"
-            initial={{ opacity: 0, y: 16 }}
-            transition={{ duration: 0.25, ease: "easeInOut" }}
+            exit={{ opacity: 0, y: 32 }}
+            initial={{ opacity: 0, y: 32 }}
+            transition={{ duration: 0.25, ease: "easeInOut", delay: 0.25 }}
           >
-            <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
+            <motion.div whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.95 }}>
               <Button
                 aria-controls={activeTestimonialId}
                 aria-label="Show previous leader"
@@ -341,7 +344,7 @@ const TeamCard = ({
                 <ArrowLeftIcon className="h-5 w-5 transition-transform duration-300 group-hover/button:rotate-12" />
               </Button>
             </motion.div>
-            <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
+            <motion.div whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.95 }}>
               <Button
                 aria-controls={activeTestimonialId}
                 aria-label="Show next leader"

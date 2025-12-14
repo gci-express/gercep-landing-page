@@ -26,8 +26,16 @@ export const MAILTO_URL = "mailto:kevin@gci-express.com";
 export const NAVIGATION_ITEMS = [
   { name: "Our Clients", link: "#clients" },
   { name: "Services", link: "#services" },
-  { name: "About Us", link: "#about" },
   { name: "Team", link: "#team" },
+  {
+    name: "Company",
+    link: "#",
+    subItems: [
+      { name: "Why Choose Us", link: "#our-values" },
+      { name: "About Us", link: "#about" },
+      { name: "Contact", link: "#contact" },
+    ],
+  },
 ];
 
 export const OUR_CLIENTS = [
@@ -69,14 +77,16 @@ export const FOOTER_LINKS = {
   services: [
     { label: "Warehouse Management", href: "#" },
     { label: "Expedition", href: "#" },
+    { label: "Freight Forwarding", href: "#" },
     { label: "Outsourcing", href: "#" },
     { label: "Logistics Consulting", href: "#" },
   ],
   company: [
     { label: "About Us", href: "#about" },
+    { label: "Services", href: "#services" },
     { label: "Our Clients", href: "#clients" },
     { label: "Team", href: "#team" },
-    { label: "Contact", href: "#footer" },
+    { label: "Contact", href: "#contact" },
   ],
   contacts: [
     { label: "Jakarta, Indonesia", href: "#", icon: MapPinIcon },

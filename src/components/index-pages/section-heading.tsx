@@ -7,7 +7,7 @@ const sectionVariants: Variants = {
   visible: {
     opacity: 1,
     y: 0,
-    transition: { duration: 0.8 },
+    transition: { duration: 0.5 },
   },
 };
 
@@ -56,7 +56,7 @@ export function SectionHeading({
           visible: {
             opacity: 1,
             y: 0,
-            transition: { duration: 0.7, ease: "easeOut", delay: 0.1 },
+            transition: { duration: 0.25, ease: "easeOut", delay: 0.15 },
           },
         }}
         viewport={{ once: false }}
@@ -68,7 +68,7 @@ export function SectionHeading({
         <motion.p
           className="mt-6 text-lg text-muted-foreground leading-relaxed md:text-xl"
           initial={{ opacity: 0, y: 20 }}
-          transition={{ duration: 0.5, delay: 0.2 }}
+          transition={{ duration: 0.25, delay: 0.25 }}
           viewport={{ once: false }}
           whileInView={{ opacity: 1, y: 0 }}
         >

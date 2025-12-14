@@ -12,7 +12,7 @@ const heroTextVariants = {
     skewY: 0,
     transition: {
       delay: index * 0.15,
-      duration: 0.8,
+      duration: 0.3,
       ease: [0.16, 1, 0.3, 1],
     },
   }),
@@ -24,8 +24,8 @@ const heroButtonVariant = {
     scale: 1,
     y: 0,
     transition: {
-      delay: 0.5,
-      duration: 0.6,
+      delay: 0.25,
+      duration: 0.3,
       ease: [0.16, 1, 0.3, 1],
     },
   },
@@ -72,7 +72,7 @@ export default function HeroSection() {
           >
             <motion.p
               aria-label="Offering end-to-end logistics solutions"
-              className="mb-6 inline-flex items-center gap-3 rounded-full border border-primary/75 bg-primary/25 px-3 py-1 font-bold text-primary-foreground/75 text-xs uppercase tracking-widest backdrop-blur-sm"
+              className="mb-6 inline-flex items-center gap-3 rounded-full border border-primary/25 bg-accent/75 px-3 py-1 font-bold text-accent-foreground text-xs uppercase tracking-widest backdrop-blur-sm"
               custom={0}
               variants={heroTextVariants}
             >

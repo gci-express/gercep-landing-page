@@ -123,7 +123,7 @@ function ServiceCard({ service, idx }: { service: ServiceItem; idx: number }) {
       initial={{ opacity: 0, scale: 0.95 }}
       transition={{
         delay: idx * 0.15,
-        duration: 0.5,
+        duration: 0.25,
       }}
       viewport={{ once: false }}
       whileInView={{ opacity: 1, scale: 1 }}

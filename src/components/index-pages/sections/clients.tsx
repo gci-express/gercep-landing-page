@@ -23,7 +23,7 @@ const cardStagger = {
   show: (index: number) => ({
     opacity: 1,
     y: 0,
-    transition: { duration: 0.5, delay: index * 0.15 },
+    transition: { duration: 0.025, delay: index * 0.1 },
   }),
 };
 
@@ -36,8 +36,8 @@ export default function ClientsSection() {
       <div className="container relative mx-auto px-4 sm:px-6 lg:px-8">
         <motion.header
           className="text-center"
-          initial={{ opacity: 0, y: 20 }}
-          transition={{ duration: 1 }}
+          initial={{ opacity: 0, y: 24 }}
+          transition={{ duration: 0.5, delay: 0.25 }}
           viewport={{ once: false }}
           whileInView={{ opacity: 1, y: 0 }}
         >

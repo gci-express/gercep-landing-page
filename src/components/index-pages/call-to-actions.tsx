@@ -87,11 +87,11 @@ export default function CallToActionsSection() {
           className="text-center opacity-75! sm:text-left"
           initial="hidden"
           variants={{
-            hidden: { opacity: 0, y: 20 },
+            hidden: { opacity: 0, y: 32 },
             show: {
               opacity: 1,
               y: 0,
-              transition: { duration: 0.3, delay: 0.25 },
+              transition: { duration: 0.2, delay: 0.3 },
             },
           }}
           whileInView="show"
@@ -107,11 +107,11 @@ export default function CallToActionsSection() {
         <motion.div
           initial="hidden"
           variants={{
-            hidden: { opacity: 0, y: 20 },
+            hidden: { opacity: 0, y: 32 },
             show: {
               opacity: 1,
               y: 0,
-              transition: { duration: 0.3, delay: 0.5 },
+              transition: { duration: 0.25, delay: 0.5 },
             },
           }}
           whileInView="show"
@@ -119,7 +119,7 @@ export default function CallToActionsSection() {
         >
           <Button
             aria-label="Get a personalized logistics quote"
-            className="rounded-full opacity-90! shadow-none"
+            className="rounded-md opacity-90! shadow-none"
             size="lg"
             variant="outline"
           >

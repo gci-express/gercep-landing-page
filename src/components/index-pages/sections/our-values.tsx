@@ -117,7 +117,11 @@ function FeaturesGrid() {
         show: {
           opacity: 1,
           y: 0,
-          transition: { staggerChildren: 0.2, duration: 0.6, ease: "easeOut" },
+          transition: {
+            staggerChildren: 0.15,
+            duration: 0.25,
+            ease: "easeOut",
+          },
         },
       }}
       viewport={{ once: false }}
@@ -153,7 +157,7 @@ const FeatureCard = ({
       show: {
         opacity: 1,
         y: 0,
-        transition: { duration: 0.5, ease: "easeOut" },
+        transition: { duration: 0.25, ease: "easeOut" },
       },
     }}
     viewport={{ once: false }}
@@ -172,7 +176,7 @@ const FeatureCard = ({
       <motion.div
         className="absolute inset-y-0 left-0 h-6 w-1 origin-center rounded-tr-full rounded-br-full bg-foreground/25 transition-all duration-200 group-hover/feature:bg-primary"
         layout
-        transition={{ duration: 0.3 }}
+        transition={{ duration: 0.5 }}
         viewport={{ once: false }}
         whileInView={{ height: "2.25rem" }}
       />

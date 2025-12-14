@@ -1,5 +1,7 @@
 import { motion } from "framer-motion";
-import { FOOTER_LINKS } from "@/lib/constants";
+import { ArrowRightIcon } from "lucide-react";
+import { FOOTER_LINKS, WHATSAPP_URL } from "@/lib/constants";
+import { Button } from "../ui/button";
 
 export default function Footer() {
   const isShow = {
@@ -47,6 +49,13 @@ export default function Footer() {
               Modern logistics solutions ensuring fast, reliable, and
               customer-centric services. We deliver trust and smiles.
             </p>
+
+            <Button asChild variant="outline">
+              <a href={WHATSAPP_URL} rel="noreferrer" target="_blank">
+                Book a Demo
+                <ArrowRightIcon />
+              </a>
+            </Button>
 
             {/* Socials */}
             {isShow.mainSocials ? (
@@ -110,7 +119,7 @@ export default function Footer() {
             <h4 className="mb-6 font-semibold" id="footer-contact-heading">
               Contact
             </h4>
-            <ul className="space-y-4">
+            <ul className="space-y-5">
               {FOOTER_LINKS.contacts.map((link) => (
                 <li className="flex items-start gap-3" key={link.label}>
                   <link.icon className="h-5 w-5 shrink-0 text-inherit opacity-75" />
