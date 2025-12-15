@@ -5,12 +5,60 @@ import Analytics from "@vercel/analytics/astro";
 type Props = {
   title: string;
   description?: string;
+  image?: string;
+  imageAlt?: string;
+  robots?: string;
 };
 
 const {
   title = "GERCEP - Kirim Senyuman Sampai Tujuan | Modern Logistics Solutions",
   description = "GERCEP - Kirim Senyuman Sampai Tujuan. Modern logistics solutions for fast, reliable, and customer-centric delivery services.",
+  image = "/modern_logistics_hub_with_trucks_and_containers.webp",
+  imageAlt = "Modern logistics hub with trucks and containers",
+  robots = "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1",
 } = Astro.props;
+
+const siteUrl = Astro.site ?? new URL(Astro.url.origin);
+const canonicalUrl = new URL(Astro.url.pathname, siteUrl);
+const socialImageUrl = new URL(image, siteUrl);
+const organizationLogoUrl = new URL("/gercep_logo_full_green.webp", siteUrl);
+
+const structuredData = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": `${siteUrl.href}#organization`,
+      name: "GERCEP",
+      url: siteUrl.href,
+      logo: organizationLogoUrl.href,
+      description,
+      address: {
+        "@type": "PostalAddress",
+        addressLocality: "Jakarta",
+        addressCountry: "ID",
+      },
+      contactPoint: [
+        {
+          "@type": "ContactPoint",
+          contactType: "customer service",
+          telephone: "+62 811 9898 922",
+          email: "kevin@gci-express.com",
+          areaServed: "ID",
+          availableLanguage: ["en", "id"],
+        },
+      ],
+    },
+    {
+      "@type": "WebSite",
+      "@id": `${siteUrl.href}#website`,
+      url: siteUrl.href,
+      name: "GERCEP",
+      description,
+      publisher: { "@id": `${siteUrl.href}#organization` },
+    },
+  ],
+};
 ---
 
 <!doctype html>
@@ -19,13 +67,30 @@ const {
     <meta charset="UTF-8">
     <meta name="description" content={description}>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+    <meta name="robots" content={robots}>
+    <link rel="canonical" href={canonicalUrl.href}>
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
     <meta name="generator" content={Astro.generator}>
 
     <!-- Open Graph -->
     <meta property="og:title" content={title}>
     <meta property="og:description" content={description}>
     <meta property="og:type" content="website">
+    <meta property="og:url" content={canonicalUrl.href}>
+    <meta property="og:site_name" content="GERCEP">
+    <meta property="og:image" content={socialImageUrl.href}>
+    <meta property="og:image:alt" content={imageAlt}>
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content={title}>
+    <meta name="twitter:description" content={description}>
+    <meta name="twitter:image" content={socialImageUrl.href}>
+    <meta name="twitter:image:alt" content={imageAlt}>
+
+    <script
+      type="application/ld+json"
+      set:html={JSON.stringify(structuredData)}
+    ></script>
 
     <title>{title}</title>
   </head>

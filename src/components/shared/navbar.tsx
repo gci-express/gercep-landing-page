@@ -16,7 +16,7 @@ import { NAVIGATION_ITEMS, WHATSAPP_TEXT, WHATSAPP_URL } from "@/lib/constants";
 const whiteLogo = (
   <img
     alt="Gercep logo"
-    className="h-10 w-auto"
+    className="aspect-auto h-10 w-auto"
     height="40"
     src="/gercep_logo_full_white.webp"
     width="160"
@@ -26,7 +26,7 @@ const whiteLogo = (
 const greenLogo = (
   <img
     alt="Gercep logo"
-    className="h-10 w-auto"
+    className="aspect-auto h-10 w-auto"
     height="40"
     src="/gercep_logo_full_green.webp"
     width="160"
