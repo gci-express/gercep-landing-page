@@ -61,9 +61,7 @@ export default function ListCard() {
               </button>
             </div>
           </div>
-          <h3 className="mb-1 font-bold font-heading text-2xl">
-            {member.name}
-          </h3>
+          <h3 className="mb-1 font-bold text-2xl">{member.name}</h3>
           <p className="mb-3 font-medium text-primary text-sm uppercase tracking-wider">
             {member.role}
           </p>

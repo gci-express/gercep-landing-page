@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { ArrowRightIcon } from "lucide-react";
-import { FOOTER_LINKS, WHATSAPP_URL } from "@/lib/constants";
+import { FOOTER_LINKS, WHATSAPP_TEXT, WHATSAPP_URL } from "@/lib/constants";
 import { Button } from "../ui/button";
 
 export default function Footer() {
@@ -14,7 +14,7 @@ export default function Footer() {
       {/* Background image overlay */}
       <div
         aria-hidden
-        className="pointer-events-none absolute inset-0 opacity-20"
+        className="pointer-events-none absolute inset-0 opacity-25!"
         style={{
           backgroundImage: `url("/bg-image-footer.png")`,
           backgroundSize: "cover",
@@ -26,51 +26,64 @@ export default function Footer() {
       <div className="container relative z-10 mx-auto px-4 sm:px-6 lg:px-8">
         {/* Main Footer Content */}
         <div className="grid grid-cols-2 gap-12 border-primary-foreground/50 border-b pb-12 md:grid-cols-3 lg:grid-cols-5">
-          <div className="col-span-full lg:col-span-2">
-            {/* Brand Column */}
-            <motion.a
-              className="mb-4 inline-flex items-center gap-3"
-              href="/"
-              whileHover={{ scale: 1.02 }}
-            >
-              <img
-                alt="Gercep logo"
-                className="h-16 w-auto"
-                height="64"
-                src="/gercep_logo_full_white.webp"
-                width="192"
-              />
-            </motion.a>
+          <div className="col-span-full grid grid-cols-1 gap-6 md:grid-cols-12 lg:col-span-2 lg:grid-cols-1">
+            <div className="col-span-full md:col-span-6 lg:col-span-full">
+              {/* Brand Column */}
+              <motion.a
+                className="mb-4 inline-flex items-center gap-3"
+                href="/"
+                whileHover={{ scale: 1.02 }}
+              >
+                <img
+                  alt="Gercep logo"
+                  className="h-16 w-auto opacity-75"
+                  height="64"
+                  src="/gercep_logo_full_white.webp"
+                  width="192"
+                />
+              </motion.a>
 
-            <p
-              className="mb-6 max-w-sm text-pretty leading-relaxed"
-              id="footer-heading"
-            >
-              Modern logistics solutions ensuring fast, reliable, and
-              customer-centric services. We deliver trust and smiles.
-            </p>
+              <p
+                className="max-w-sm text-pretty leading-relaxed"
+                id="footer-heading"
+              >
+                Modern logistics solutions ensuring fast, reliable, and
+                customer-centric services. We deliver trust and smiles.
+              </p>
+            </div>
 
-            <Button asChild variant="outline">
-              <a href={WHATSAPP_URL} rel="noreferrer" target="_blank">
-                Book a Demo
-                <ArrowRightIcon />
-              </a>
-            </Button>
+            <div className="col-span-full md:col-start-10 md:col-end-13 lg:col-span-full">
+              <Button
+                asChild
+                className="w-full opacity-85! md:w-auto"
+                size="lg"
+                variant="outline"
+              >
+                <a
+                  href={`${WHATSAPP_URL}?text=${encodeURIComponent(WHATSAPP_TEXT)}`}
+                  rel="noreferrer noopener"
+                  target="_blank"
+                >
+                  Book a Demo
+                  <ArrowRightIcon />
+                </a>
+              </Button>
 
-            {/* Socials */}
-            {isShow.mainSocials ? (
-              <div className="flex gap-4">
-                {FOOTER_LINKS.socials.map((social, i) => (
-                  <a
-                    className="flex h-8 w-8 items-center justify-center rounded-full bg-secondary/25 text-secondary transition-colors hover:bg-primary-foreground hover:text-primary"
-                    href={social.href}
-                    key={String(i)}
-                  >
-                    <social.icon size={16} />
-                  </a>
-                ))}
-              </div>
-            ) : null}
+              {/* Socials */}
+              {isShow.mainSocials ? (
+                <div className="flex gap-4">
+                  {FOOTER_LINKS.socials.map((social, i) => (
+                    <a
+                      className="flex h-8 w-8 items-center justify-center rounded-full bg-secondary/25 text-secondary transition-colors hover:bg-primary-foreground hover:text-primary"
+                      href={social.href}
+                      key={String(i)}
+                    >
+                      <social.icon size={16} />
+                    </a>
+                  ))}
+                </div>
+              ) : null}
+            </div>
           </div>
 
           {/* Services */}

@@ -172,7 +172,7 @@ function ServiceCard({ service, idx }: { service: ServiceItem; idx: number }) {
         </div>
 
         <h3
-          className={cn("mb-2 font-bold font-heading text-2xl", theme.heading)}
+          className={cn("mb-2 font-bold text-2xl", theme.heading)}
           id={headingId}
         >
           {service.title}

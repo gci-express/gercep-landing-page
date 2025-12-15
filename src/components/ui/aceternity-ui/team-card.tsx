@@ -174,7 +174,7 @@ const TeamCard = ({
                   </figure>
                   <div
                     aria-hidden
-                    className="absolute inset-0 flex items-end justify-center rounded-3xl bg-linear-to-t from-foreground/75 via-foreground/25 to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100"
+                    className="absolute inset-0 flex items-end justify-center rounded-3xl bg-linear-to-t from-black/75 via-black/25 to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100"
                     role="presentation"
                   >
                     <div className="flex w-full max-w-[90%] flex-wrap justify-center gap-3 pb-4">

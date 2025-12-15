@@ -1,18 +1,20 @@
 import { motion, useScroll, useTransform, type Variants } from "framer-motion";
 import { ArrowRightIcon } from "lucide-react";
+import { Fragment } from "react";
 import { Button } from "@/components/ui/button";
 import { WHATSAPP_TEXT, WHATSAPP_URL } from "@/lib/constants";
 
 const HEROBG = "/bg-hero-gercep-express-port-2.webp";
 const heroTextVariants = {
-  hidden: { opacity: 0, y: 32, skewY: 2 },
+  hidden: { opacity: 0, y: 24, skewY: 2, filter: "blur(24px)" },
   visible: (index = 0) => ({
     opacity: 1,
     y: 0,
     skewY: 0,
+    filter: "blur(0px)",
     transition: {
-      delay: index * 0.15,
-      duration: 0.3,
+      delay: index * 0.01,
+      duration: 0.15,
       ease: [0.16, 1, 0.3, 1],
     },
   }),
@@ -30,6 +32,24 @@ const heroButtonVariant = {
     },
   },
 } satisfies Variants;
+const HERO_HEADING_WORDS = [
+  { id: "heading-deliver", text: "Deliver" },
+  { id: "heading-smiles", text: "Smiles", highlight: true, breakAfter: true },
+  { id: "heading-to", text: "To" },
+  { id: "heading-every", text: "Every" },
+  { id: "heading-destination", text: "Destination" },
+];
+const HERO_DESCRIPTION_TEXT =
+  "We don't just deliver goods, we deliver trust, efficiency, and smiles at every destination. Experience the modern standard of logistics.";
+const HERO_DESCRIPTION_WORDS = HERO_DESCRIPTION_TEXT.split(" ").map(
+  (word, index) => ({
+    id: `hero-description-word-${index}`,
+    text: word,
+  })
+);
+const HERO_WORD_OFFSET = HERO_HEADING_WORDS.length;
+const DESCRIPTION_WORD_OFFSET =
+  HERO_WORD_OFFSET + HERO_DESCRIPTION_WORDS.length;
 
 export default function HeroSection() {
   const { scrollY } = useScroll();
@@ -80,28 +100,53 @@ export default function HeroSection() {
             </motion.p>
 
             <motion.h1
-              className="text-pretty font-extrabold font-heading text-5xl text-primary-foreground uppercase italic leading-[0.9] md:text-7xl lg:text-8xl"
-              custom={1}
+              className="text-pretty font-black text-5xl text-primary-foreground uppercase italic leading-[0.9] md:text-7xl lg:text-8xl"
               id="hero-heading"
-              variants={heroTextVariants}
             >
-              Deliver{" "}
-              <span className="bg-linear-to-r from-primary to-primary/75 bg-clip-text text-outline-white text-transparent">
-                Smiles
-              </span>{" "}
-              <br />
-              To Every Destination
+              {HERO_HEADING_WORDS.map(
+                ({ id, text, highlight, breakAfter }, index) => (
+                  <Fragment key={id}>
+                    <motion.span
+                      className="inline-block uppercase leading-tight"
+                      custom={HERO_WORD_OFFSET + index}
+                      variants={heroTextVariants}
+                    >
+                      {highlight ? (
+                        <span className="bg-linear-to-r from-primary to-primary/75 bg-clip-text text-outline-white text-transparent">
+                          {text}
+                        </span>
+                      ) : (
+                        text
+                      )}
+                    </motion.span>
+                    {breakAfter ? (
+                      <br />
+                    ) : (
+                      <span aria-hidden className="inline-block w-2" />
+                    )}
+                  </Fragment>
+                )
+              )}
             </motion.h1>
 
             <motion.p
               className="max-w-2xl text-pretty font-light text-lg text-primary-foreground/75 leading-relaxed md:text-xl"
-              custom={2}
               id="hero-description"
-              variants={heroTextVariants}
             >
-              We don&apos;t just deliver goods, we deliver trust, efficiency,
-              and smiles at every destination. Experience the modern standard of
-              logistics.
+              {HERO_DESCRIPTION_WORDS.map(({ id, text }, index) => (
+                <Fragment key={id}>
+                  <motion.span
+                    className="mr-1 inline-block text-left last:mr-0"
+                    custom={DESCRIPTION_WORD_OFFSET + index}
+                    variants={heroTextVariants}
+                  >
+                    {text}
+                  </motion.span>
+                  {index < HERO_DESCRIPTION_WORDS.length - 1 ? (
+                    <span aria-hidden> </span>
+                  ) : null}
+                </Fragment>
+              ))}
             </motion.p>
           </motion.header>
 

@@ -13,7 +13,7 @@ export default function CallToActionsSection() {
       <motion.div
         animate={{ opacity: [0.15, 0.3, 0.15], scale: [1, 1.03, 1] }}
         aria-hidden
-        className="-z-20 pointer-events-none absolute inset-0"
+        className="-z-20 pointer-events-none absolute inset-0 opacity-25!"
         role="presentation"
         style={{
           backgroundImage: `url("/bg-image-footer.png")`,
@@ -73,7 +73,7 @@ export default function CallToActionsSection() {
         {/* Background image overlay */}
         <motion.div
           animate={{ opacity: [0.25, 0.45, 0.25] }}
-          className="pointer-events-none absolute inset-0"
+          className="pointer-events-none absolute inset-0 opacity-25!"
           style={{
             backgroundImage: `url("/bg-image-footer.png")`,
             backgroundSize: "cover",
@@ -119,7 +119,7 @@ export default function CallToActionsSection() {
         >
           <Button
             aria-label="Get a personalized logistics quote"
-            className="rounded-md opacity-90! shadow-none"
+            className="rounded-md opacity-85! shadow-none"
             size="lg"
             variant="outline"
           >

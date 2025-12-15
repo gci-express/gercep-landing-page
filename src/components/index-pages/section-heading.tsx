@@ -49,7 +49,7 @@ export function SectionHeading({
       ) : null}
 
       <motion.h2
-        className="font-bold font-heading text-4xl text-foreground uppercase leading-tight md:text-5xl"
+        className="font-bold text-4xl text-foreground uppercase leading-tight md:text-5xl"
         id={titleId}
         variants={{
           hidden: { opacity: 0, y: 20 },
