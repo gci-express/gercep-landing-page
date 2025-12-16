@@ -5,13 +5,18 @@ import {
   CpuIcon,
   DollarSignIcon,
   FacebookIcon,
+  HandshakeIcon,
   InstagramIcon,
+  LightbulbIcon,
   LinkedinIcon,
   MailIcon,
   MapPinIcon,
   PhoneIcon,
+  RocketIcon,
+  ShieldIcon,
   ShipIcon,
   SparklesIcon,
+  TargetIcon,
   TrendingUpIcon,
   TruckIcon,
   TwitterIcon,
@@ -219,6 +224,39 @@ export const VISION_MISSION = [
     title: "Our Mission",
     description:
       "Provide integrated logistics solutions tailored to customer needs—ensuring timely, secure, and accurate deliveries that create smiles at every stage.",
-    icon: SparklesIcon,
+    icon: TargetIcon,
   },
 ];
+
+export const OUR_PILLARS = [
+  {
+    title: "Reliability",
+    description:
+      "Consistency in quality and performance—so you can plan every shipment with confidence.",
+    icon: ShieldIcon,
+  },
+  {
+    title: "Speed",
+    description:
+      "Quick response and on-time deliveries that keep your business moving.",
+    icon: RocketIcon,
+  },
+  {
+    title: "Innovation",
+    description:
+      "Technology-driven logistics for better visibility, control, and efficiency.",
+    icon: LightbulbIcon,
+  },
+  {
+    title: "Partnership",
+    description:
+      "Customer-first collaboration—we work as an extension of your team.",
+    icon: HandshakeIcon,
+  },
+  {
+    title: "Integrity",
+    description:
+      "Honest, transparent, and ethical service in everything we do.",
+    icon: TargetIcon,
+  },
+] as const;

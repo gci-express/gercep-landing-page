@@ -1,5 +1,10 @@
 ---
-import { Header, Vision } from "@/components/about-pages/container";
+import {
+  Header,
+  OurPilars,
+  RunningText,
+  Vision,
+} from "@/components/about-pages/container";
 import Footer from "@/components/shared/footer";
 import Navbar from "@/components/shared/navbar";
 import Layout from "@/layouts/layout.astro";
@@ -8,12 +13,27 @@ import Layout from "@/layouts/layout.astro";
 <Layout title="About | GERCEP">
   <Navbar client:load theme="primary"/>
 
-  <main
-    class="relative overflow-hidden flex z-10 flex-col gap-10 bg-background rounded-b-4xl shadow-[0_30px_60px_-40px_rgba(15,23,42,0.5)]"
-  >
-    <Header client:load/>
+  <main>
+    <section
+      class="relative overflow-hidden flex z-20 flex-col gap-10 bg-background rounded-b-4xl shadow-[0_30px_60px_-40px_rgba(15,23,42,0.5)]"
+    >
+      <Header client:load/>
 
-    <Vision client:load/>
+      <Vision client:load/>
+    </section>
+
+    <section
+      aria-label="Gercep pillars promise"
+      class="relative overflow-hidden -my-10 z-10 bg-primary text-primary-foreground"
+    >
+      <RunningText client:load/>
+    </section>
+
+    <section
+      class="relative overflow-hidden flex z-20 flex-col gap-10 bg-background rounded-4xl shadow-[0_30px_60px_-40px_rgba(15,23,42,0.5),0_-30px_60px_-40px_rgba(15,23,42,0.5)]"
+    >
+      <OurPilars client:load/>
+    </section>
   </main>
 
   <Footer client:visible/>

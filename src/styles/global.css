@@ -217,10 +217,35 @@
   }
 }
 
+/* Selection */
+::selection {
+  background: var(--color-primary);
+  color: white;
+}
+
 /* hero section */
 .text-outline-white {
   -webkit-text-stroke: 1px rgba(255, 255, 255, 0.5);
   paint-order: stroke fill;
+}
+
+/* about section */
+.running-text {
+  animation: ticker-scroll 50s linear infinite;
+}
+
+.running-text span {
+  @apply shrink-0 font-extrabold text-4xl md:text-5xl uppercase opacity-75;
+  letter-spacing: 0.3em;
+}
+
+@keyframes ticker-scroll {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
 }
 
 /* Custom scrollbar */
@@ -240,12 +265,6 @@
 /* ::-webkit-scrollbar-thumb:hover {
   background: var(--color-dark-400);
 } */
-
-/* Selection */
-::selection {
-  background: var(--color-primary);
-  color: white;
-}
 
 /* Gradient text utility */
 .gradient-text {
