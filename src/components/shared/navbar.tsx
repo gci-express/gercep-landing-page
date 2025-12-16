@@ -41,13 +41,38 @@ const GREEN_LOGO = (
 export type NavbarProps = {
   className?: string;
   theme?: NavbarTheme;
+  currentPath?: string;
 };
 
 export default function Navbar({
   className,
   theme = "transparent",
+  currentPath,
 }: NavbarProps) {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const navigationItems = useMemo(() => {
+    const inAboutPage = currentPath?.startsWith("/about");
+
+    return NAVIGATION_ITEMS.map((item) => {
+      if (!item.subItems?.length) {
+        return item;
+      }
+
+      return {
+        ...item,
+        subItems: item.subItems.map((subItem) => {
+          if (subItem.name !== "Why Choose Us") {
+            return subItem;
+          }
+
+          return {
+            ...subItem,
+            link: inAboutPage ? "/#our-values" : subItem.link,
+          };
+        }),
+      };
+    });
+  }, [currentPath]);
 
   // Handle body scroll lock when mobile menu is open
   useEffect(() => {
@@ -87,7 +112,7 @@ export default function Navbar({
       {/* Desktop Navigation */}
       <NavBody>
         <NavbarLogo logo={WHITE_LOGO} logoScrolled={GREEN_LOGO} />
-        <NavItems items={NAVIGATION_ITEMS} />
+        <NavItems items={navigationItems} />
         <NavActions />
       </NavBody>
 
@@ -106,7 +131,7 @@ export default function Navbar({
           isOpen={isMobileMenuOpen}
           onClose={() => setIsMobileMenuOpen(false)}
         >
-          {NAVIGATION_ITEMS.map((item, idx) => (
+          {navigationItems.map((item, idx) => (
             <motion.div
               animate={{ opacity: 1, y: 0 }}
               className="w-full"

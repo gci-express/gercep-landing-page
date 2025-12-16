@@ -8,10 +8,12 @@ import {
 import Footer from "@/components/shared/footer";
 import Navbar from "@/components/shared/navbar";
 import Layout from "@/layouts/layout.astro";
+
+const currentPath = Astro.url.pathname;
 ---
 
 <Layout title="About | GERCEP">
-  <Navbar client:load theme="primary"/>
+  <Navbar client:load theme="primary" currentPath={currentPath}/>
 
   <main>
     <section
