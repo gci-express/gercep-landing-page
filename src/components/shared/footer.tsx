@@ -55,7 +55,7 @@ export default function Footer() {
             <div className="col-span-full md:col-start-10 md:col-end-13 lg:col-span-full">
               <Button
                 asChild
-                className="w-full opacity-85! md:w-auto"
+                className="w-full opacity-65! md:w-auto"
                 size="lg"
                 variant="outline"
               >
