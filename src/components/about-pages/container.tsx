@@ -9,7 +9,7 @@ import {
 } from "@/lib/constants";
 import { Button } from "../ui/button";
 
-const MotionPlusIcon = motion(PlusIcon);
+const MotionPlusIcon = motion.create(PlusIcon);
 
 const headerTextVariants = {
   hidden: { opacity: 0, y: 24 },
