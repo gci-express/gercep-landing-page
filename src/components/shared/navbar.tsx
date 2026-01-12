@@ -52,24 +52,30 @@ export default function Navbar({
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const navigationItems = useMemo(() => {
     const inAboutPage = currentPath?.startsWith("/about");
+    const formatLink = (link: string) => {
+      if (link === "#" || !link) {
+        return link;
+      }
+
+      return inAboutPage && link.startsWith("#") ? `/${link}` : link;
+    };
 
     return NAVIGATION_ITEMS.map((item) => {
+      const formattedItem = {
+        ...item,
+        link: formatLink(item.link),
+      };
+
       if (!item.subItems?.length) {
-        return item;
+        return formattedItem;
       }
 
       return {
-        ...item,
-        subItems: item.subItems.map((subItem) => {
-          if (subItem.name !== "Why Choose Us") {
-            return subItem;
-          }
-
-          return {
-            ...subItem,
-            link: inAboutPage ? "/#our-values" : subItem.link,
-          };
-        }),
+        ...formattedItem,
+        subItems: item.subItems.map((subItem) => ({
+          ...subItem,
+          link: formatLink(subItem.link),
+        })),
       };
     });
   }, [currentPath]);

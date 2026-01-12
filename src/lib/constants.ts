@@ -122,16 +122,16 @@ export const TEAMS = [
     email: "rendidewantoro@gci-express.com",
     phone: "+62 822 9705 0321",
     img: "/gercep-rendi.webp",
-    bio: "Seasoned logistics leader (Lion Parcel, PCP Express). Focus on operational excellence.",
+    bio: "Seasoned logistics leader (Lion Parcel, Paketku, and Ethix.id). Focus on operational excellence.",
   },
-  {
-    name: "Dandi Napitupulu",
-    role: "CFO of Gercep",
-    email: "dandi@gci-express.com",
-    phone: "+62 888 888 888",
-    img: "/gercep-dandi.webp",
-    bio: "Financial strategist with extensive risk management expertise across multiple industries.",
-  },
+  // {
+  //   name: "Dandi Napitupulu",
+  //   role: "CFO of Gercep",
+  //   email: "dandi@gci-express.com",
+  //   phone: "+62 888 888 888",
+  //   img: "/gercep-dandi.webp",
+  //   bio: "Financial strategist with extensive risk management expertise across multiple industries.",
+  // },
 ];
 
 export const OUR_VALUES = [
