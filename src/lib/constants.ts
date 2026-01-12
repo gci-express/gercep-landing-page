@@ -39,7 +39,7 @@ export const NAVIGATION_ITEMS = [
     subItems: [
       { name: "Why Choose Us", link: "#our-values" },
       { name: "About Us", link: "/about" },
-      { name: "Contact", link: "#contact" },
+      { name: "Contact", link: "/contact" },
     ],
   },
 ];
@@ -114,7 +114,7 @@ export const TEAMS = [
     email: "kevin@gci-express.com",
     phone: "+62 811 9898 922",
     img: "/gercep-kevin.webp",
-    bio: "Ex-Lazada, Maersk, Zalora. Expert in supply chain management and business scalability.",
+    bio: "Ex-Havi Logistics, Zalora, aCommerce, Lazada, Janio, Luwjistik and Ethix. Expert in supply chain management and business scalability.",
   },
   {
     name: "Rendi Joseph",
@@ -122,7 +122,7 @@ export const TEAMS = [
     email: "rendidewantoro@gci-express.com",
     phone: "+62 822 9705 0321",
     img: "/gercep-rendi.webp",
-    bio: "Seasoned logistics leader (Lion Parcel, Paketku, and Ethix.id). Focus on operational excellence.",
+    bio: "Seasoned logistics leader (Lion Parcel, Paketku, Luwjistik and Ethix). Focus on operational excellence.",
   },
   // {
   //   name: "Dandi Napitupulu",
