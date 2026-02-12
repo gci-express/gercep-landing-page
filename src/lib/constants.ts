@@ -46,37 +46,60 @@ export const NAVIGATION_ITEMS = [
 
 export const OUR_CLIENTS = [
   {
-    name: "SAP Express" as const,
-    logo: "/sap-icon.webp" as string,
+    name: "Lancar Jaya Motor" as const,
+    logo: "/lancar-jaya-icon.webp" as string,
+    additionalClass: "scale-130 max-sm:scale-120",
   },
   {
-    name: "Morrison Express" as const,
-    logo: "/morrison-icon.webp" as string,
+    name: "Sany Group" as const,
+    logo: "/sany-icon.webp" as string,
+    additionalClass: "",
   },
   {
-    name: "Hyundai Elevator" as const,
-    logo: "/hyundai-icon.webp" as string,
+    name: "Kirimin Aja" as const,
+    logo: "/kirimin-aja-icon.webp" as string,
+    additionalClass: "scale-110 max-sm:scale-100",
   },
   {
     name: "Watson" as const,
     logo: "/watsons-icon.webp" as string,
+    additionalClass: "scale-110",
+  },
+  {
+    name: "Hyundai Elevator" as const,
+    logo: "/hyundai-icon.webp" as string,
+    additionalClass: "scale-115 max-sm:scale-100",
+  },
+  {
+    name: "SAP Express" as const,
+    logo: "/sap-icon.webp" as string,
+    additionalClass: "scale-110 max-sm:scale-100",
   },
   {
     name: "Agriku" as const,
     logo: "/agriku-icon.webp" as string,
+    additionalClass: "scale-110 max-sm:scale-100",
   },
   {
     name: "Power Commerce Asia" as const,
     logo: "/pca-icon.webp" as string,
+    additionalClass: "scale-100 max-sm:scale-100",
   },
   {
     name: "Jasa Marga" as const,
     logo: "/jasa-marga-icon.webp" as string,
+    additionalClass: "scale-120 max-sm:scale-105",
   },
   {
     name: "Goday" as const,
     logo: "/goday-icon.webp" as string,
+    additionalClass: "",
   },
+  // {
+  //   name: "Morrison Express" as const,
+  //   logo: "/morrison-icon.webp" as string,
+  //   additionalClass: "scale-110",
+  // },
 ] as const;
 
 export const FOOTER_LINKS = {
@@ -186,14 +209,14 @@ export const OUR_SERVICES = [
     desc: "Comprehensive road, rail, sea, and air transport for flexible distribution networks.",
     image: "/business-expedition-3.webp",
     icon: TruckIcon,
-    colSpan: "md:col-span-1",
+    colSpan: "md:col-span-2 lg:col-span-1",
   },
   {
     title: "Freight Forwarding",
     desc: "Global shipping solutions including FTL, LTL, FCL, and LCL services.",
     image: "/business-freight-2.webp",
     icon: ShipIcon,
-    colSpan: "md:col-span-1",
+    colSpan: "md:col-span-2 lg:col-span-1",
   },
   {
     title: "Outsourcing",

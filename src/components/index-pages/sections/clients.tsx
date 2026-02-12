@@ -7,17 +7,6 @@ import { motion } from "framer-motion";
 import { OUR_CLIENTS } from "@/lib/constants";
 import { cn } from "@/lib/utils";
 
-const CLIENT_BORDER_CLASS: string[] = [
-  "border-t-0 border-x-0 md:border-r",
-  "border-t-0 border-r-0 md:border-r md:border-l-0",
-  "border-t-0 border-x-0 lg:border-r",
-  "border-t-0 border-r-0 md:border-l-0 md:border-r lg:border-r-0",
-  "border-t-0 border-x-0 md:border-r lg:border-b-0",
-  "border-t-0 border-t-0 border-r-0 md:border-l-0 lg:border-r lg:border-b-0",
-  "border-y-0 border-y-0 border-x-0 md:border-r",
-  "border-y-0 border-y-0 border-r-0 md:border-l-0 md:border-r lg:border-r-0",
-];
-
 const cardStagger = {
   hidden: { opacity: 0, y: 24 },
   show: (index: number) => ({
@@ -56,7 +45,7 @@ export default function ClientsSection() {
         <div className="mx-auto mt-16 w-max">
           <motion.ul
             aria-label="List of Gercep enterprise clients"
-            className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4"
+            className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-4 xl:grid-cols-5"
             initial="hidden"
             role="list"
             viewport={{ once: false, amount: 0.4 }}
@@ -64,10 +53,7 @@ export default function ClientsSection() {
           >
             {OUR_CLIENTS.map((company, index) => (
               <motion.li
-                className={cn(
-                  "group flex h-20 w-44 items-center justify-center border backdrop-blur md:h-24 md:w-60",
-                  CLIENT_BORDER_CLASS[index] ?? "border"
-                )}
+                className="group flex h-20 w-44 items-center justify-center border backdrop-blur md:h-24 md:w-60"
                 custom={index}
                 key={company.name}
                 variants={cardStagger}
@@ -80,10 +66,11 @@ export default function ClientsSection() {
               >
                 <span className="sr-only">{company.name}</span>
                 <img
-                  alt=""
+                  alt={company.name}
                   aria-hidden
                   className={cn(
-                    "h-auto max-h-14 w-auto max-w-30 object-contain opacity-75 grayscale transition duration-300 group-hover:opacity-100 group-hover:grayscale-0 max-sm:scale-75"
+                    "h-auto max-h-14 w-auto max-w-30 object-contain opacity-75 grayscale transition duration-300 group-hover:opacity-100 group-hover:grayscale-0 max-sm:scale-90",
+                    company?.additionalClass ? company.additionalClass : ""
                   )}
                   draggable={false}
                   height={32}

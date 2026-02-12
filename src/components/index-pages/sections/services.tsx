@@ -1,6 +1,6 @@
-import { motion } from "framer-motion";
+import { motion, useScroll, useTransform } from "framer-motion";
 import { ArrowRightIcon } from "lucide-react";
-import { useId } from "react";
+import { useId, useRef } from "react";
 import { OUR_SERVICES } from "@/lib/constants";
 import { cn } from "@/lib/utils";
 import { SectionHeading } from "../section-heading";
@@ -72,7 +72,7 @@ export default function ServicesSection() {
           titleId={servicesHeadingId}
         />
 
-        <ul className="grid auto-rows-[300px] grid-cols-1 gap-6 md:grid-cols-3">
+        <ul className="grid auto-rows-[300px] grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
           {OUR_SERVICES.map((service, idx) => (
             <li
               className={cn("list-none", service.colSpan)}
@@ -111,6 +111,15 @@ function ServiceCard({ service, idx }: { service: ServiceItem; idx: number }) {
   const themedBackground = Boolean(service.image || service.bgClass);
   const theme = themedBackground ? serviceThemes.media : serviceThemes.default;
   const Icon = service.icon;
+  const cardRef = useRef<HTMLDivElement>(null);
+
+  // Parallax effect for the image - track scroll relative to this card
+  const { scrollYProgress } = useScroll({
+    target: cardRef,
+    offset: ["start end", "end start"],
+  });
+
+  const imageY = useTransform(scrollYProgress, [0, 1], [-60, 60]);
 
   return (
     <motion.article
@@ -121,6 +130,7 @@ function ServiceCard({ service, idx }: { service: ServiceItem; idx: number }) {
         service.bgClass || "bg-card"
       )}
       initial={{ opacity: 0, scale: 0.95 }}
+      ref={cardRef}
       transition={{
         delay: idx * 0.15,
         duration: 0.25,
@@ -144,13 +154,17 @@ function ServiceCard({ service, idx }: { service: ServiceItem; idx: number }) {
       />
 
       {service?.image ? (
-        <div className="absolute inset-0 z-0">
+        <div className="absolute inset-0 z-0 overflow-hidden">
           <div className="absolute inset-0 z-10 bg-linear-to-t from-black/80 via-black/35 to-transparent" />
-          <img
+          <motion.img
             alt={service.title}
             className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-110"
             height="400"
             src={service.image}
+            style={{
+              y: imageY,
+              scale: 1.1,
+            }}
             width="600"
           />
         </div>
@@ -158,13 +172,13 @@ function ServiceCard({ service, idx }: { service: ServiceItem; idx: number }) {
 
       <div
         className={cn(
-          "relative z-20 flex h-full flex-col justify-center p-8",
+          "relative z-20 flex h-full flex-col p-8 lg:justify-center",
           service.image ? "" : "opacity-80"
         )}
       >
         <div
           className={cn(
-            "mb-4 flex h-12 w-12 items-center justify-center rounded-lg opacity-75",
+            "mb-4 flex h-12 w-12 shrink-0 items-center justify-center rounded-lg opacity-75",
             theme.icon
           )}
         >
@@ -190,7 +204,7 @@ function ServiceCard({ service, idx }: { service: ServiceItem; idx: number }) {
 
         <div
           className={cn(
-            "mt-6 flex h-8 w-8 items-center justify-center rounded-full border opacity-0 backdrop-blur-md transition-opacity duration-300 group-hover:opacity-100",
+            "mt-6 flex h-8 w-8 shrink-0 items-center justify-center rounded-full border opacity-0 backdrop-blur-md transition-opacity duration-300 group-hover:opacity-100",
             theme.arrow
           )}
         >
