@@ -1,0 +1,18 @@
+---
+import { ContactContainer } from "@/components/contact-pages/container";
+import Footer from "@/components/shared/footer";
+import Navbar from "@/components/shared/navbar";
+import Layout from "@/layouts/layout.astro";
+
+const currentPath = Astro.url.pathname;
+---
+
+<Layout title="Contact | GERCEP" bodyClass="lg:overflow-hidden">
+  <Navbar client:load theme="primary" currentPath={currentPath}/>
+
+  <main>
+    <ContactContainer client:load/>
+  </main>
+
+  <Footer client:visible isSticky={false}/>
+</Layout>

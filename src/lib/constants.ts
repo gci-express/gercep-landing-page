@@ -24,10 +24,26 @@ import {
   WarehouseIcon,
 } from "lucide-react";
 
-export const WHATSAPP_URL = "https://wa.me/628119898922";
+const CONTACTS = {
+  kevin: {
+    phone: {
+      text: "628119898922",
+      label: "+62 811 9898 922",
+    },
+    email: "kevin@gci-express.com",
+  },
+  rendi: {
+    phone: {
+      text: "6282297050321",
+      label: "+62 822 9705 0321",
+    },
+    email: "rendidewantoro@gci-express.com",
+  },
+};
+export const WHATSAPP_URL = `https://wa.me/${CONTACTS.kevin.phone.text}`;
 export const WHATSAPP_TEXT =
   "Hi GERCEP, I'm interested in your logistics services and would appreciate a quote for my needs.";
-export const MAILTO_URL = "mailto:kevin@gci-express.com";
+export const MAILTO_URL = `mailto:${CONTACTS.kevin.email}`;
 
 export const NAVIGATION_ITEMS = [
   { name: "Our Clients", link: "#clients" },
@@ -119,7 +135,7 @@ export const FOOTER_LINKS = {
   ],
   contacts: [
     { label: "Jakarta, Indonesia", href: "#", icon: MapPinIcon },
-    { label: "+62 811 9898 922", href: WHATSAPP_URL, icon: PhoneIcon },
+    { label: CONTACTS.kevin.phone.label, href: WHATSAPP_URL, icon: PhoneIcon },
     { label: "kevin@gci-express.com", href: MAILTO_URL, icon: MailIcon },
   ],
   socials: [
@@ -135,15 +151,15 @@ export const TEAMS = [
     name: "Kevin Lieanor",
     role: "CEO of Gercep",
     email: "kevin@gci-express.com",
-    phone: "+62 811 9898 922",
+    phone: CONTACTS.kevin.phone.label,
     img: "/gercep-kevin.webp",
     bio: "Ex-Havi Logistics, Zalora, aCommerce, Lazada, Janio, Luwjistik and Ethix. Expert in supply chain management and business scalability.",
   },
   {
     name: "Rendi Joseph",
     role: "CCO of Gercep",
-    email: "rendidewantoro@gci-express.com",
-    phone: "+62 822 9705 0321",
+    email: CONTACTS.rendi.email,
+    phone: CONTACTS.rendi.phone.label,
     img: "/gercep-rendi.webp",
     bio: "Seasoned logistics leader (Lion Parcel, Paketku, Luwjistik and Ethix). Focus on operational excellence.",
   },
@@ -283,3 +299,21 @@ export const OUR_PILLARS = [
     icon: TargetIcon,
   },
 ] as const;
+
+export const OUR_CONTACTS = [
+  {
+    icon: PhoneIcon,
+    label: CONTACTS.kevin.phone.label,
+    href: WHATSAPP_URL,
+  },
+  {
+    icon: MailIcon,
+    label: CONTACTS.kevin.email,
+    href: MAILTO_URL,
+  },
+  {
+    icon: LinkedinIcon,
+    label: "linkedin.com/gercep",
+    href: "https://www.linkedin.com/company/pt-gerak-cepat-indonesia",
+  },
+];

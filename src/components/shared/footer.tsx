@@ -1,16 +1,28 @@
 import { motion } from "framer-motion";
 import { ArrowRightIcon } from "lucide-react";
 import { FOOTER_LINKS, WHATSAPP_TEXT, WHATSAPP_URL } from "@/lib/constants";
+import { cn } from "@/lib/utils";
 import { Button } from "../ui/button";
 
-export default function Footer() {
+export type FooterProps = {
+  isSticky?: boolean;
+  className?: string;
+};
+
+export default function Footer({ isSticky = true, className }: FooterProps) {
   const isShow = {
     mainSocials: false,
     bottomRight: "love" as "love" | "term_and_privacy",
   };
 
   return (
-    <footer className="-mt-10 sticky bottom-0 overflow-hidden bg-primary pt-28 pb-6 text-primary-foreground/75 md:pb-8">
+    <footer
+      className={cn(
+        "-mt-10 overflow-hidden bg-primary pt-28 pb-6 text-primary-foreground/75 md:pb-8",
+        isSticky ? "sticky bottom-0" : "",
+        className
+      )}
+    >
       {/* Background image overlay */}
       <div
         aria-hidden
@@ -36,7 +48,7 @@ export default function Footer() {
               >
                 <img
                   alt="Gercep logo"
-                  className="h-16 w-auto opacity-75"
+                  className="-ml-2 h-20 w-auto opacity-75 md:h-16 md:w-auto"
                   height="64"
                   src="/gercep_logo_full_white.webp"
                   width="192"
@@ -52,7 +64,7 @@ export default function Footer() {
               </p>
             </div>
 
-            <div className="col-span-full md:col-start-10 md:col-end-13 lg:col-span-full">
+            <div className="col-span-full md:col-start-10 md:col-end-13 md:place-self-end md:self-center lg:col-span-full lg:place-self-auto lg:self-auto">
               <Button
                 asChild
                 className="w-full opacity-65! md:w-auto"
