@@ -46,7 +46,10 @@ const TeamCard = ({
   const [active, setActive] = useState(0);
 
   const containerRef = useRef<HTMLDivElement | null>(null);
-  const inView = useInView(containerRef, { amount: 0.3 });
+  const inView = useInView(containerRef, {
+    amount: 0.3,
+    margin: "50% 0px 0% 0px",
+  });
 
   const handleNext = () => {
     setActive((prev) => (prev + 1) % testimonials.length);

@@ -104,11 +104,11 @@ export const OUR_CLIENTS = [
 
 export const FOOTER_LINKS = {
   services: [
-    { label: "Warehouse Management", href: "#" },
-    { label: "Expedition", href: "#" },
-    { label: "Freight Forwarding", href: "#" },
-    { label: "Outsourcing", href: "#" },
-    { label: "Logistics Consulting", href: "#" },
+    { label: "Warehouse Management", href: "#services" },
+    { label: "Expedition", href: "#services" },
+    { label: "Freight Forwarding", href: "#services" },
+    { label: "Outsourcing", href: "#services" },
+    { label: "Logistics Consulting", href: "#services" },
   ],
   company: [
     { label: "About Us", href: "/about" },

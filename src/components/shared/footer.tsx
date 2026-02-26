@@ -10,7 +10,7 @@ export default function Footer() {
   };
 
   return (
-    <footer className="-mt-10 sticky bottom-0 overflow-hidden bg-primary pt-28 pb-8 text-primary-foreground/75">
+    <footer className="-mt-10 sticky bottom-0 overflow-hidden bg-primary pt-28 pb-6 text-primary-foreground/75 md:pb-8">
       {/* Background image overlay */}
       <div
         aria-hidden
@@ -106,7 +106,10 @@ export default function Footer() {
           </nav>
 
           {/* Company */}
-          <nav aria-labelledby="footer-company-heading">
+          <nav
+            aria-labelledby="footer-company-heading"
+            className="hidden md:block"
+          >
             <h4 className="mb-6 font-semibold" id="footer-company-heading">
               Company
             </h4>
