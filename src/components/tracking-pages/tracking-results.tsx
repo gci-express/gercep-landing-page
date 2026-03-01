@@ -70,7 +70,7 @@ function InitialState() {
   return (
     <motion.div
       animate={{ opacity: 1, y: 0 }}
-      className="container mx-auto w-full px-4 text-center md:flex md:items-center md:gap-12 md:px-6 md:text-left lg:px-8"
+      className="container mx-auto w-full max-w-5xl px-4 text-center md:flex md:items-center md:gap-12 md:px-6 md:text-left lg:px-8"
       exit={{ opacity: 0, y: -10 }}
       initial={{ opacity: 0, y: 20 }}
       transition={{ duration: 0.15, delay: 0.2 }}
@@ -226,7 +226,7 @@ function NotFoundState() {
   return (
     <motion.div
       animate={{ opacity: 1, y: 0 }}
-      className="container mx-auto w-full px-4 text-center md:flex md:items-center md:gap-12 md:px-6 md:text-left lg:px-8"
+      className="container mx-auto w-full max-w-5xl px-4 text-center md:flex md:items-center md:gap-12 md:px-6 md:text-left lg:px-8"
       exit={{ opacity: 0, y: -10 }}
       initial={{ opacity: 0, y: 20 }}
       transition={{ duration: 0.15 }}
