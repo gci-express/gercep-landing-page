@@ -525,7 +525,7 @@ export function OurPilars() {
                     </div>
                   </div>
 
-                  <p className="text-pretty text-muted-foreground text-sm leading-relaxed">
+                  <p className="text-pretty text-muted-foreground leading-relaxed">
                     {pillar.description}
                   </p>
                 </div>

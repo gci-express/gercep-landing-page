@@ -7,7 +7,11 @@ import Layout from "@/layouts/layout.astro";
 const currentPath = Astro.url.pathname;
 ---
 
-<Layout title="Contact | GERCEP" bodyClass="lg:overflow-hidden">
+<Layout
+  title="Contact | GERCEP"
+  description="Get in touch with GERCEP for any inquiries, support, or feedback. We're here to help you."
+  bodyClass="lg:overflow-hidden"
+>
   <Navbar client:load theme="primary" currentPath={currentPath}/>
 
   <main>

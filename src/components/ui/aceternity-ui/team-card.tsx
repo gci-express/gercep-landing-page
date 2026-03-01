@@ -294,13 +294,13 @@ const TeamCard = ({
               ease: "easeInOut",
             }}
           >
-            <h4 className="font-bold text-2xl text-foreground">
+            <h4 className="font-bold text-2xl text-foreground md:text-3xl">
               {testimonials[active].name}
             </h4>
             <p className="text-muted-foreground text-sm">
               {testimonials[active].designation}
             </p>
-            <motion.p className="mt-8 text-pretty text-lg text-muted-foreground">
+            <motion.p className="mt-8 text-pretty text-base text-muted-foreground md:text-lg">
               {testimonials[active].quote.split(" ").map((word, index) => (
                 <motion.span
                   animate={{

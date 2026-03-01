@@ -25,6 +25,13 @@ import {
 } from "lucide-react";
 
 const CONTACTS = {
+  company: {
+    phone: {
+      text: "628979146445",
+      label: "+62 897 9146 445",
+    },
+    email: "admin@gci-express.com",
+  },
   kevin: {
     phone: {
       text: "628119898922",
@@ -40,10 +47,10 @@ const CONTACTS = {
     email: "rendidewantoro@gci-express.com",
   },
 };
-export const WHATSAPP_URL = `https://wa.me/${CONTACTS.kevin.phone.text}`;
+export const WHATSAPP_URL = `https://wa.me/${CONTACTS.company.phone.text}`;
 export const WHATSAPP_TEXT =
   "Hi GERCEP, I'm interested in your logistics services and would appreciate a quote for my needs.";
-export const MAILTO_URL = `mailto:${CONTACTS.kevin.email}`;
+export const MAILTO_URL = `mailto:${CONTACTS.company.email}`;
 
 export const NAVIGATION_ITEMS = [
   { name: "Our Clients", link: "#clients" },
@@ -58,6 +65,7 @@ export const NAVIGATION_ITEMS = [
       { name: "Contact", link: "/contact" },
     ],
   },
+  { name: "Tracking", link: "/tracking" },
 ];
 
 export const OUR_CLIENTS = [
@@ -135,8 +143,12 @@ export const FOOTER_LINKS = {
   ],
   contacts: [
     { label: "Jakarta, Indonesia", href: "#", icon: MapPinIcon },
-    { label: CONTACTS.kevin.phone.label, href: WHATSAPP_URL, icon: PhoneIcon },
-    { label: "kevin@gci-express.com", href: MAILTO_URL, icon: MailIcon },
+    {
+      label: CONTACTS.company.phone.label,
+      href: WHATSAPP_URL,
+      icon: PhoneIcon,
+    },
+    { label: CONTACTS.company.email, href: MAILTO_URL, icon: MailIcon },
   ],
   socials: [
     { icon: FacebookIcon, href: "#", label: "Facebook" },
@@ -303,12 +315,12 @@ export const OUR_PILLARS = [
 export const OUR_CONTACTS = [
   {
     icon: PhoneIcon,
-    label: CONTACTS.kevin.phone.label,
+    label: CONTACTS.company.phone.label,
     href: WHATSAPP_URL,
   },
   {
     icon: MailIcon,
-    label: CONTACTS.kevin.email,
+    label: CONTACTS.company.email,
     href: MAILTO_URL,
   },
   {

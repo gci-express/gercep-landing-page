@@ -186,7 +186,10 @@ function ServiceCard({ service, idx }: { service: ServiceItem; idx: number }) {
         </div>
 
         <h3
-          className={cn("mb-2 font-bold text-2xl", theme.heading)}
+          className={cn(
+            "mb-2 text-pretty font-bold text-xl md:text-2xl",
+            theme.heading
+          )}
           id={headingId}
         >
           {service.title}
@@ -194,7 +197,7 @@ function ServiceCard({ service, idx }: { service: ServiceItem; idx: number }) {
 
         <p
           className={cn(
-            "max-w-md text-pretty text-sm leading-relaxed",
+            "max-w-md text-pretty text-sm leading-relaxed md:text-base",
             theme.body
           )}
           id={descriptionId}

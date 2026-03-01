@@ -172,7 +172,7 @@ const FeatureCard = ({
     <div className="relative z-10 mb-4 px-10 text-foreground group-hover/feature:text-primary">
       <Icon aria-hidden className="shrink-0 opacity-75" />
     </div>
-    <div className="relative z-10 mb-2 px-10 font-bold text-lg">
+    <div className="relative z-10 mb-2 px-10 font-bold text-xl md:text-2xl">
       <motion.div
         className="absolute inset-y-0 left-0 h-6 w-1 origin-center rounded-tr-full rounded-br-full bg-foreground/25 transition-all duration-200 group-hover/feature:bg-primary"
         layout
@@ -184,7 +184,7 @@ const FeatureCard = ({
         {title}
       </span>
     </div>
-    <p className="relative z-10 text-pretty px-10 text-muted-foreground text-sm">
+    <p className="relative z-10 text-pretty px-10 text-muted-foreground text-sm md:text-base">
       {description}
     </p>
   </motion.li>

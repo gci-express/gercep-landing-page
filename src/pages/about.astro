@@ -12,7 +12,10 @@ import Layout from "@/layouts/layout.astro";
 const currentPath = Astro.url.pathname;
 ---
 
-<Layout title="About | GERCEP">
+<Layout
+  title="About | GERCEP"
+  description="Learn more about GERCEP's vision, mission, and the core pillars that drive our commitment to excellence and innovation."
+>
   <Navbar client:load theme="primary" currentPath={currentPath}/>
 
   <main>

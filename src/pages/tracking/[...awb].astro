@@ -1,0 +1,50 @@
+---
+import Footer from "@/components/shared/footer";
+import Navbar from "@/components/shared/navbar";
+import { TrackingHeader } from "@/components/tracking-pages/tracking-header";
+import { TrackingHelpBanner } from "@/components/tracking-pages/tracking-help-banner";
+import { TrackingResults } from "@/components/tracking-pages/tracking-results";
+import { TrackingSearchBar } from "@/components/tracking-pages/tracking-search-bar";
+import Layout from "@/layouts/layout.astro";
+
+export function getStaticPaths() {
+  return [{ params: { awb: undefined } }];
+}
+
+const currentPath = Astro.url.pathname;
+---
+
+<Layout
+  title="Tracking | GERCEP"
+  description="Lacak status pengiriman paket Anda secara real-time dengan nomor Airway Bill (AWB). GERCEP - Kirim Senyuman Sampai Tujuan."
+>
+  <Navbar client:load theme="primary" currentPath={currentPath}/>
+
+  <main>
+    <section
+      class="relative flex z-20 flex-col gap-16 md:gap-20 lg:gap-24 bg-background rounded-b-4xl shadow-[0_30px_60px_-40px_rgba(15,23,42,0.5)]"
+    >
+      <!-- Header + Search — side by side on desktop -->
+      <div
+        class="container relative z-10 mx-auto mt-24 w-full px-4 md:px-6 lg:px-8"
+      >
+        <div
+          class="flex flex-col items-center gap-8 lg:flex-row lg:items-center lg:justify-evenly lg:pt-8"
+        >
+          <TrackingHeader client:load/>
+          <TrackingSearchBar client:load/>
+        </div>
+      </div>
+
+      <!-- Results -->
+      <TrackingResults client:load/>
+
+      <!-- Help banner -->
+      <div class="px-4 md:px-6 pb-8 mt-auto">
+        <TrackingHelpBanner client:load/>
+      </div>
+    </section>
+  </main>
+
+  <Footer client:visible/>
+</Layout>
