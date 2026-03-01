@@ -52,12 +52,17 @@ export default function Navbar({
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const navigationItems = useMemo(() => {
     const inAboutPage = currentPath?.startsWith("/about");
+    const inTrackingPage = currentPath?.startsWith("/tracking");
+    const inContactPage = currentPath?.startsWith("/contact");
     const formatLink = (link: string) => {
       if (link === "#" || !link) {
         return link;
       }
 
-      return inAboutPage && link.startsWith("#") ? `/${link}` : link;
+      return (inAboutPage || inTrackingPage || inContactPage) &&
+        link.startsWith("#")
+        ? `/${link}`
+        : link;
     };
 
     return NAVIGATION_ITEMS.map((item) => {
